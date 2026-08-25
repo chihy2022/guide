@@ -60,7 +60,7 @@
     background:#fff;border:1px solid var(--line);border-radius:16px;
     box-shadow:0 12px 30px -18px rgba(13,27,76,.35);
     padding:22px 26px;
-    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+    display:flex;align-items:center;gap:18px;flex-direction: row; flex-wrap: nowrap;
   }
   .flag{
     width:38px;height:38px;flex:none;border-radius:10px;
