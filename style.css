@@ -192,7 +192,7 @@
   }
   .checklist{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-top:16px;}
   @media(max-width:720px){.checklist{grid-template-columns:1fr;}}
-  .checklist div{display:flex;gap:15px;font-size:14px;color:#dbe4f7;align-items:flex-start;margin-top: 7px;}
+  .checklist div{display:flex;gap:15px;color:#dbe4f7;align-items:flex-start;margin-top: 7px;}
   .check-ico{
     flex:none;width:20px;height:20px;border-radius:6px;background:var(--sky);
     display:flex;align-items:center;justify-content:center;color:var(--navy-deep);font-size:14px;font-weight:800;margin-top:1px;
