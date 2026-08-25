@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+<!-- <link rel="stylesheet" href="style.css"> -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -12,7 +7,7 @@
 <title>Hướng dẫn GSTB Input — Số lượng nhận & Tồn kho</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#0d1b4c;
@@ -28,13 +23,13 @@
   *{box-sizing:border-box;}
   body{
     margin:0;
-    font-family:'Inter', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background:var(--paper);
     color:var(--ink);
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3,h4{font-family:'Sora','Inter',system-ui,sans-serif;}
+  h1,h2,h3,h4{font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
   .wrap{max-width:1000px;margin:0 auto;padding:0 24px 80px;}
 
   /* HERO */
@@ -84,12 +79,40 @@
   .logic p{margin:0;color:var(--muted);font-size:14.5px;}
   .logic strong{color:var(--navy);}
 
-  section{margin-top:56px;}
+  section{margin-top:40px;}
+  .section-block{
+    border-radius:20px;padding:34px 36px;border:1px solid var(--line);
+    background:#fff;position:relative;overflow:hidden;
+  }
+  .section-block::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:5px;
+  }
+  .section-block.overview::before{background:linear-gradient(90deg,var(--navy),var(--blue));}
+  .section-block.part-a::before{background:linear-gradient(90deg,var(--gold),#f7c250);}
+  .section-block.part-b::before{background:linear-gradient(90deg,var(--sky),#1f9fbd);}
+  .section-block.overview{background:linear-gradient(180deg,#eef2fd 0%,#fff 180px);}
+  .section-block.part-a{background:linear-gradient(180deg,#fdf6e6 0%,#fff 180px);}
+  .section-block.part-b{background:linear-gradient(180deg,#e9f8fb 0%,#fff 180px);}
+
+  .part-label{
+    display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;
+    letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:16px;
+  }
+  .part-label .dot{width:8px;height:8px;border-radius:50%;}
+  .overview .part-label{color:var(--navy);background:#dfe7fb;}
+  .overview .part-label .dot{background:var(--navy);}
+  .part-a .part-label{color:#8a6d00;background:#fbe9c2;}
+  .part-a .part-label .dot{background:var(--gold);}
+  .part-b .part-label{color:#0a6d84;background:#cdf1f8;}
+  .part-b .part-label .dot{background:var(--sky);}
+
   .section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:22px;}
   .section-num{
     font-size:13px;font-weight:800;color:var(--blue);
     background:#e8f0fe;padding:4px 10px;border-radius:8px;letter-spacing:.04em;
   }
+  .part-a .section-num{color:#8a6d00;background:#fbe9c2;}
+  .part-b .section-num{color:#0a6d84;background:#cdf1f8;}
   h2{font-size:22px;margin:0;color:var(--navy);font-weight:800;}
   .section-desc{color:var(--muted);font-size:14.5px;margin:8px 0 0;max-width:680px;}
 
@@ -150,7 +173,7 @@
 
   /* CHECKLIST FINAL */
   .final{
-    background:var(--navy);color:#fff;border-radius:18px;padding:30px 30px 26px;margin-top:60px;
+    background:var(--navy);color:#fff;border-radius:20px;padding:34px 36px 30px;margin-top:48px;
   }
   .final h2{color:#fff;}
   .final .section-num{background:rgba(255,255,255,.12);color:var(--sky);}
@@ -211,9 +234,10 @@
     <p><strong>Nguyên tắc chung:</strong> mọi số liệu trên hệ thống phải khớp với thực tế tại NPP. GSTB kiểm kho trực tiếp, rồi mới nhập số liệu — không nhập trước khi kiểm.</p>
   </div>
 
-  <section>
+  <section class="section-block overview">
+    <div class="part-label"><span class="dot"></span>Tổng quan</div>
     <div class="section-head">
-      <span class="section-num">TỔNG QUAN</span>
+      <span class="section-num">BƯỚC 0</span>
       <h2>Hai việc GSTB cần làm trong bước Input</h2>
     </div>
     <p class="section-desc">"GSTB Input" gồm hai luồng riêng biệt trên cùng hệ thống Merchandising. Xác định đúng luồng trước khi thao tác để tránh nhập sai mục.</p>
@@ -239,9 +263,10 @@
     </figure>
   </section>
 
-  <section>
+  <section class="section-block part-a">
+    <div class="part-label"><span class="dot"></span>Phần A</div>
     <div class="section-head">
-      <span class="section-num">PHẦN A</span>
+      <span class="section-num">SỐ LƯỢNG NHẬN</span>
       <h2>Nhập Số lượng nhận (BC POSM Tồn kho)</h2>
     </div>
     <p class="section-desc">Áp dụng khi NPP vừa nhận một lô POSM mới từ kế hoạch phân bổ (Plan out).</p>
@@ -299,9 +324,10 @@
     </div>
   </section>
 
-  <section>
+  <section class="section-block part-b">
+    <div class="part-label"><span class="dot"></span>Phần B</div>
     <div class="section-head">
-      <span class="section-num">PHẦN B</span>
+      <span class="section-num">TỒN KHO</span>
       <h2>Nhập Tồn kho (Báo cáo tồn kho GSTB)</h2>
     </div>
     <p class="section-desc">Áp dụng cho việc kiểm kê tồn kho định kỳ hoặc khi cần cập nhật số tồn thực tế tại NPP lên hệ thống.</p>
