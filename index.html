@@ -152,6 +152,30 @@
   }
 
   footer{text-align:center;color:var(--muted);font-size:12.5px;margin-top:50px;}
+
+  /* SCREENSHOT FRAME */
+  figure.shot{
+    margin:16px 0 4px;padding:0;border:1px solid var(--line);border-radius:12px;
+    overflow:hidden;background:#fff;
+  }
+  figure.shot img{display:block;width:100%;height:auto;}
+  figure.shot figcaption{
+    font-size:12.5px;color:var(--muted);padding:9px 14px;border-top:1px solid var(--line);
+    background:#f9fafc;
+  }
+  figure.shot figcaption code{
+    background:#eef1f8;color:var(--navy);padding:1px 6px;border-radius:5px;font-size:11.5px;
+  }
+  /* placeholder look until real image is dropped in */
+  figure.shot.missing{
+    background:repeating-linear-gradient(135deg,#eef1f8,#eef1f8 10px,#e6e9f4 10px,#e6e9f4 20px);
+    min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;
+  }
+  figure.shot.missing img{display:none;}
+  figure.shot.missing::before{
+    content:"🖼  Chưa có ảnh — thả file vào đúng đường dẫn ở chú thích bên dưới";
+    color:var(--muted);font-size:13px;padding:24px;
+  }
 </style>
 </head>
 <body>
@@ -197,6 +221,11 @@
         <div class="path">Báo cáo → Báo cáo tồn kho GSTB</div>
       </div>
     </div>
+
+    <figure class="shot" onerror="this.classList.add('missing')">
+      <img src="images/00-tong-quan.png" alt="Tổng quan quy trình GSTB Input" onerror="this.parentElement.classList.add('missing')">
+      <figcaption>Ảnh minh họa tổng quan &nbsp;·&nbsp; lưu tại <code>images/00-tong-quan.png</code></figcaption>
+    </figure>
   </section>
 
   <section>
@@ -220,6 +249,10 @@
           <h4>Lọc đúng khoảng thời gian và NPP</h4>
           <p>Chọn <b>Từ ngày – Đến ngày</b>, và có thể lọc thêm theo <b>Nhà phân phối</b>, <b>Loại POSM</b>, <b>Trạng thái nhận</b>, <b>Trạng thái xác nhận</b> rồi bấm <b>Tìm kiếm</b>.</p>
           <p>Danh sách trả về hiển thị: ngày plan out, ngày dự kiến giao, NPP, loại POSM, số lượng plan out, và số lượng thực nhận đợt 1 / đợt 2.</p>
+          <figure class="shot">
+            <img src="images/a2-danh-sach-bc-posm.png" alt="Danh sách BC POSM Tồn kho" onerror="this.parentElement.classList.add('missing')">
+            <figcaption>Danh sách BC POSM Tồn kho &nbsp;·&nbsp; <code>images/a2-danh-sach-bc-posm.png</code></figcaption>
+          </figure>
         </div>
       </div>
       <div class="step">
@@ -234,6 +267,10 @@
             <tr><td class="k">Số lượng thực nhận đợt 2</td><td>Số POSM thực tế nhận thêm nếu giao thành nhiều đợt</td></tr>
             <tr><td class="k">Trạng thái nhận</td><td>Đã nhận / Chưa nhận</td></tr>
           </table>
+          <figure class="shot">
+            <img src="images/a3-chi-tiet-xac-nhan-ton-kho.png" alt="Chi tiết xác nhận tồn kho" onerror="this.parentElement.classList.add('missing')">
+            <figcaption>Bảng chi tiết xác nhận tồn kho &nbsp;·&nbsp; <code>images/a3-chi-tiet-xac-nhan-ton-kho.png</code></figcaption>
+          </figure>
         </div>
       </div>
       <div class="step">
@@ -242,6 +279,10 @@
           <h4>Nhập số lượng thực nhận và Lưu</h4>
           <p>Điền đúng số lượng đã đếm thực tế vào ô tương ứng, ghi chú (nếu có sai lệch với plan out), sau đó bấm <b>Lưu</b>.</p>
           <div class="note"><b>Lưu ý:</b> chỉ bấm "Xác nhận" khi số liệu đã chốt cuối cùng — sau khi xác nhận sẽ khó chỉnh sửa lại.</div>
+          <figure class="shot">
+            <img src="images/a4-nhap-so-luong-nhan.png" alt="Nhập số lượng thực nhận" onerror="this.parentElement.classList.add('missing')">
+            <figcaption>Nhập số lượng thực nhận &amp; Lưu &nbsp;·&nbsp; <code>images/a4-nhap-so-luong-nhan.png</code></figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -267,6 +308,10 @@
         <div>
           <h4>Tick chọn danh sách POSM cần kiểm tồn</h4>
           <p>Ở ô <b>Loại POSM</b>, tick chọn toàn bộ (hoặc từng) mã POSM đang có tại NPP mà bạn sẽ kiểm đếm trong đợt này.</p>
+          <figure class="shot">
+            <img src="images/b2-tick-danh-sach-posm.png" alt="Tick chọn danh sách POSM" onerror="this.parentElement.classList.add('missing')">
+            <figcaption>Tick chọn danh sách POSM kiểm tồn &nbsp;·&nbsp; <code>images/b2-tick-danh-sach-posm.png</code></figcaption>
+          </figure>
         </div>
       </div>
       <div class="step">
@@ -274,6 +319,10 @@
         <div>
           <h4>Bấm "Tạo báo cáo"</h4>
           <p>Hệ thống sẽ tạo một dòng báo cáo mới theo ngày hiện tại, hiển thị ở danh sách phía dưới cùng với Nhà phân phối và Thời gian tạo báo cáo.</p>
+          <figure class="shot">
+            <img src="images/b3-tao-bao-cao.png" alt="Tạo báo cáo thành công" onerror="this.parentElement.classList.add('missing')">
+            <figcaption>Tạo báo cáo thành công &nbsp;·&nbsp; <code>images/b3-tao-bao-cao.png</code></figcaption>
+          </figure>
         </div>
       </div>
       <div class="step">
@@ -281,6 +330,10 @@
         <div>
           <h4>Mở báo cáo vừa tạo, nhập tồn thực tế</h4>
           <p>Bấm dấu <b>+</b> ở đầu dòng để mở chi tiết. Bảng hiện ra danh sách các mã POSM đã chọn (Mã POSM, Tên POSM, Số lượng). Nhập số lượng đếm được thực tế vào từng dòng, sau đó bấm <b>Xác nhận</b>.</p>
+          <figure class="shot">
+            <img src="images/b4-nhap-ton-thuc-te.png" alt="Nhập tồn thực tế và xác nhận" onerror="this.parentElement.classList.add('missing')">
+            <figcaption>Nhập tồn thực tế &amp; Xác nhận &nbsp;·&nbsp; <code>images/b4-nhap-ton-thuc-te.png</code></figcaption>
+          </figure>
         </div>
       </div>
       <div class="step">
@@ -295,6 +348,10 @@
             <li>Bấm <b>Xác nhận</b> để lưu toàn bộ</li>
           </ul>
           <div class="note"><b>Lưu ý:</b> mỗi NPP chỉ nên có một báo cáo tồn kho GSTB / ngày — bổ sung vào báo cáo đã có thay vì tạo báo cáo mới trùng ngày.</div>
+          <figure class="shot">
+            <img src="images/b5-bo-sung-posm-moi.png" alt="Bổ sung POSM mới trong cùng báo cáo" onerror="this.parentElement.classList.add('missing')">
+            <figcaption>Bổ sung POSM mới &amp; xác nhận lại toàn bộ &nbsp;·&nbsp; <code>images/b5-bo-sung-posm-moi.png</code></figcaption>
+          </figure>
         </div>
       </div>
     </div>
