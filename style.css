@@ -198,7 +198,7 @@
     display:flex;align-items:center;justify-content:center;color:var(--navy-deep);font-size:14px;font-weight:800;margin-top:1px;
   }
 
-  footer{text-align:center;color:var(--muted);font-size:14px;margin-top:50px;}
+  footer{text-align:center;color:var(--muted);font-size:14px;margin-bottom:50px;}
 
   /* SCREENSHOT FRAME */
   figure.shot{
