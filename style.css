@@ -199,7 +199,7 @@
 
   footer{text-align:center;color:var(--muted);font-size:14px;margin-bottom:50px;}
   footer .footer-main{margin:0 0 4px;}
-  footer .footer-sign{margin:0;font-size:13px;color:#8a93ac;letter-spacing:.02em;}
+  footer .footer-sign{margin:0;font-size:13px;color:#8a93ac;letter-spacing:.02em;display: flex; justify-content: center; align-items: center; gap: 9px;}
   footer .footer-sign strong{color:var(--navy);font-weight:700;}
   .footer-logos{
     display:flex;align-items:center;justify-content:center;gap:16px;
