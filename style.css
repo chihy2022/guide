@@ -1,5 +1,4 @@
-
-  :root{
+:root{
     --navy:#0d1b4c;
     --navy-deep:#081235;
     --blue:#1f6fd6;
@@ -199,6 +198,17 @@
   }
 
   footer{text-align:center;color:var(--muted);font-size:14px;margin-bottom:50px;}
+  footer .footer-main{margin:0 0 4px;}
+  footer .footer-sign{margin:0;font-size:13px;color:#8a93ac;letter-spacing:.02em;}
+  footer .footer-sign strong{color:var(--navy);font-weight:700;}
+  .footer-logos{
+    display:flex;align-items:center;justify-content:center;gap:16px;
+    margin-bottom:14px;
+  }
+  .footer-logo{display:block;width:auto;}
+  .footer-logo-acacy{height:26px;}
+  .footer-logo-unilever{height:34px;}
+  .footer-logos-x{color:var(--line);font-size:16px;font-weight:600;}
 
   /* SCREENSHOT FRAME */
   figure.shot{
