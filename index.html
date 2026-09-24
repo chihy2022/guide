@@ -1,243 +1,413 @@
-<!-- <link rel="stylesheet" href="style.css"> -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guide</title>
-<link rel="icon" type="image/png" href="images/Lwhite.png" style="width: 24px; border-radius: 19px;">
-<link rel="icon" type="image/png" href="images/favicon-32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="images/favicon-64.png" sizes="64x64">
-<link rel="apple-touch-icon" href="images/favicon-180.png">
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unime System × Unilever — Hành trình hệ thống</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1024; --panel:#141B33; --panel-2:#1B2444; --line:rgba(153,171,224,0.16);
+    --blue:#3E6BFF; --blue-glow:#7FA0FF; --text:#EAEEFC; --text-dim:rgba(234,238,252,0.62);
+    --green:#33C97F; --amber:#F2A93B; --coral:#FF6B6B;
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{ scroll-padding-top:env(safe-area-inset-top,0px); }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{ background:var(--ink); color:var(--text); font-family:'Inter',system-ui,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  h1,h2,h3,.serif{ font-family:'Lora',Georgia,serif; }
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 28px; }
+  section{ padding:96px 0; }
+  @media(max-width:640px){ section{ padding:60px 0; } .wrap{ padding:0 20px; } }
+  .eyebrow{ color:var(--blue-glow); font-weight:700; font-size:14px; letter-spacing:0.01em; }
 
+  /* ICON BADGE */
+  .icon{ width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(155deg,var(--blue),#7C4DFF); flex-shrink:0; box-shadow:0 8px 20px -8px rgba(62,107,255,0.55); }
+  .icon svg{ width:22px; height:22px; stroke:#fff; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* HERO */
+  .hero{ position:relative; overflow:hidden; padding:104px 0 90px;
+    background:
+      radial-gradient(680px 420px at 82% -10%, rgba(62,107,255,0.35), transparent 60%),
+      radial-gradient(520px 380px at -5% 90%, rgba(124,77,255,0.22), transparent 60%),
+      var(--ink); }
+  .hero .wrap{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center; position:relative; z-index:1; }
+  @media(max-width:860px){ .hero .wrap{ grid-template-columns:1fr; } }
+  .brandline{ display:flex; align-items:center; gap:12px; margin-bottom:28px; opacity:0; animation:rise .7s ease-out .05s forwards; }
+  .mark{ width:38px; height:38px; border-radius:10px; background:linear-gradient(155deg,var(--blue),#7C4DFF);
+    display:flex; align-items:center; justify-content:center; font-family:'Lora',serif; font-weight:700; color:#fff; font-size:18px; }
+  .brandline .bt{ font-weight:700; font-size:15px; letter-spacing:0.01em; }
+  .brandline .bt span{ display:block; font-size:11px; font-weight:500; color:var(--text-dim); letter-spacing:0.04em; }
+  .hero h1{ font-size:clamp(32px,4.6vw,50px); font-weight:600; line-height:1.15; max-width:16ch;
+    opacity:0; animation:rise .8s ease-out .15s forwards; }
+  .hero p.lead{ margin-top:22px; max-width:50ch; font-size:17.5px; color:var(--text-dim);
+    opacity:0; animation:rise .8s ease-out .3s forwards; }
+  @keyframes rise{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+  .hero-stats{ margin-top:48px; display:flex; gap:40px; flex-wrap:wrap; opacity:0; animation:rise .8s ease-out .45s forwards; }
+  .hero-stats .num{ font-family:'Lora',serif; font-size:36px; font-weight:700; background:linear-gradient(120deg,#fff,var(--blue-glow));
+    -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero-stats .lbl{ font-size:13.5px; color:var(--text-dim); margin-top:4px; max-width:18ch; }
+  @media(prefers-reduced-motion:reduce){ .brandline,.hero h1,.hero p.lead,.hero-stats,.frame{ opacity:1; animation:none; } }
+
+  /* PRODUCT FRAME (decorative, echoes the app's own nav) */
+  .frame{ background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:22px;
+    box-shadow:0 30px 60px -24px rgba(0,0,0,0.55); opacity:0; animation:rise .8s ease-out .35s forwards; }
+  .frame-head{ display:flex; align-items:center; gap:10px; padding-bottom:16px; border-bottom:1px solid var(--line); margin-bottom:16px; }
+  .frame-head .mark{ width:30px; height:30px; font-size:14px; border-radius:8px; }
+  .frame-head .ft{ font-weight:700; font-size:14.5px; }
+  .frame-head .ft span{ display:block; font-size:10px; color:var(--text-dim); font-weight:500; letter-spacing:0.05em; }
+  .fgroup{ font-size:11px; color:var(--text-dim); letter-spacing:0.06em; text-transform:uppercase; margin:16px 4px 8px; }
+  .fgroup:first-of-type{ margin-top:0; }
+  .fitem{ display:flex; align-items:center; gap:10px; padding:9px 10px; border-radius:9px; font-size:14px; color:var(--text-dim); }
+  .fitem.active{ background:linear-gradient(90deg,rgba(62,107,255,0.9),rgba(124,77,255,0.75)); color:#fff; font-weight:600; }
+  .fitem .dot{ width:7px; height:7px; border-radius:50%; background:currentColor; opacity:0.6; flex-shrink:0; }
+
+  /* TIMELINE */
+  .section-head{ margin-bottom:48px; max-width:62ch; }
+  .section-head h2{ font-size:clamp(24px,3.4vw,32px); font-weight:600; margin-top:10px; }
+  .section-head p{ margin-top:14px; color:var(--text-dim); font-size:16px; max-width:58ch; }
+  .timeline{ position:relative; padding-left:32px; border-left:2px solid var(--line); }
+  .t-item{ position:relative; padding-bottom:48px; }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item .icon{ position:absolute; left:-59px; top:0; width:38px; height:38px; border-radius:10px; }
+  .t-item .icon svg{ width:18px; height:18px; }
+  .t-item h3{ font-size:20px; font-weight:600; }
+  .t-item .tag{ display:inline-block; font-size:13px; color:var(--text-dim); margin-left:10px; font-family:'Inter',sans-serif; font-weight:500; }
+  .t-item p{ margin-top:8px; color:var(--text-dim); max-width:60ch; font-size:15.5px; }
+
+  /* PILLARS */
+  .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media(max-width:760px){ .pillars{ grid-template-columns:1fr; } }
+  .pillar{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:26px; }
+  .pillar h3{ font-size:17px; font-weight:600; margin-top:16px; }
+  .pillar .count{ font-family:'Lora',serif; font-size:30px; font-weight:700; color:var(--blue-glow); margin:8px 0 8px; }
+  .pillar p{ font-size:14.5px; color:var(--text-dim); }
+
+  .spotlight{ margin-top:20px; border:1px solid var(--line); border-radius:18px; overflow:hidden;
+    background:linear-gradient(150deg,var(--panel-2),var(--panel));
+    display:grid; grid-template-columns:1.1fr 1fr; }
+  @media(max-width:760px){ .spotlight{ grid-template-columns:1fr; } }
+  .spotlight-copy{ padding:38px; border-right:1px solid var(--line); }
+  @media(max-width:760px){ .spotlight-copy{ border-right:none; border-bottom:1px solid var(--line); } }
+  .pill{ display:inline-block; font-size:12.5px; font-weight:700; color:var(--amber); border:1px solid rgba(242,169,59,0.5);
+    background:rgba(242,169,59,0.1); padding:5px 12px; border-radius:999px; }
+  .spotlight-copy h3{ font-size:24px; margin-top:12px; font-weight:600; }
+  .spotlight-copy p{ margin-top:12px; color:var(--text-dim); font-size:15.5px; }
+  .ledger{ padding:38px; }
+  .ledger .row{ display:flex; justify-content:space-between; gap:16px; padding:13px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+  .ledger .row:last-child{ border-bottom:none; }
+  .ledger .row span:first-child{ color:var(--text); font-weight:600; }
+  .ledger .row span:last-child{ color:var(--text-dim); text-align:right; max-width:56%; }
+
+  /* STAT BAND */
+  .statband{ background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .stats-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+  @media(max-width:640px){ .stats-row{ grid-template-columns:1fr; gap:28px; } }
+  .stat{ border-left:3px solid var(--green); padding-left:20px; }
+  .stat.amber{ border-color:var(--amber); }
+  .stat.coral{ border-color:var(--coral); }
+  .stat .num{ font-family:'Lora',serif; font-size:46px; font-weight:700; }
+  .stat.amber .num{ color:var(--amber); } .stat.coral .num{ color:var(--coral); } .stat .num{ color:var(--green); }
+  .stat .lbl{ margin-top:6px; font-size:15px; color:var(--text-dim); }
+
+  /* ROADMAP */
+  .manifest{ border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  .m-row{ display:grid; grid-template-columns:1.4fr 2.4fr auto; gap:20px; align-items:center;
+    padding:20px 24px; border-bottom:1px solid var(--line); background:var(--panel); }
+  .m-row:nth-child(even){ background:var(--panel-2); }
+  .m-row:last-child{ border-bottom:none; }
+  .m-row h4{ font-size:16.5px; font-weight:600; }
+  .m-row p{ font-size:14.5px; color:var(--text-dim); }
+  .flag{ font-size:12.5px; font-weight:700; color:var(--coral); border:1px solid rgba(255,107,107,0.5);
+    background:rgba(255,107,107,0.1); padding:6px 12px; border-radius:999px; white-space:nowrap; justify-self:end; }
+  @media(max-width:640px){ .m-row{ grid-template-columns:1fr; } .flag{ justify-self:start; } }
+
+  /* ROAD DIAGRAM */
+  .road{ margin-bottom:52px; }
+  .road svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .roadlabel{ font-family:'Inter',sans-serif; font-size:15px; font-weight:700; fill:var(--text); }
+  .roadsub{ font-family:'Inter',sans-serif; font-size:11.5px; fill:var(--text-dim); }
+  .pulse-ring{ animation:pulse 2.4s ease-in-out infinite; transform-origin:center; transform-box:fill-box; }
+  @keyframes pulse{ 0%,100%{ opacity:.6; transform:scale(1); } 50%{ opacity:0; transform:scale(1.3); } }
+  @media(prefers-reduced-motion:reduce){ .pulse-ring{ animation:none; } }
+
+  /* DONUT */
+  .donut-row{ display:flex; align-items:center; gap:52px; flex-wrap:wrap; }
+  .donut-wrap{ position:relative; width:196px; height:196px; flex-shrink:0; }
+  .donut-wrap svg{ width:100%; height:100%; }
+  .donut-wrap .center{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .donut-wrap .center .big{ font-family:'Lora',serif; font-size:34px; font-weight:700; }
+  .donut-wrap .center .small{ font-size:12px; color:var(--text-dim); margin-top:2px; }
+  .legend{ display:flex; flex-direction:column; gap:16px; flex:1; min-width:240px; }
+  .legend-item{ display:flex; align-items:flex-start; gap:12px; }
+  .legend-item .sw{ width:11px; height:11px; border-radius:3px; flex-shrink:0; margin-top:5px; }
+  .legend-item .num{ font-family:'Lora',serif; font-weight:700; font-size:19px; }
+  .legend-item .lbl{ font-size:14px; color:var(--text-dim); margin-top:1px; }
+
+  /* ROADMAP FLOW */
+  .flow{ margin-bottom:26px; }
+  .flow svg{ width:100%; height:auto; display:block; }
+
+  /* CLOSING */
+  .closing{ position:relative; overflow:hidden;
+    background: radial-gradient(600px 340px at 15% 0%, rgba(62,107,255,0.28), transparent 60%), var(--ink); }
+  .closing h2{ font-size:clamp(26px,4vw,38px); font-weight:600; max-width:20ch; }
+  .closing p{ margin-top:16px; color:var(--text-dim); max-width:56ch; font-size:16.5px; }
+  .closing .sign{ margin-top:40px; padding-top:24px; border-top:1px solid var(--line); color:var(--text-dim); font-size:14.5px; }
+</style>
 </head>
 <body>
 
-<div class="hero">
-  <div class="hero-inner">
+<header class="hero">
+  <div class="wrap">
     <div>
-      <div class="eyebrow">Merchandising · POSM · GSTB</div>
-      <h1>GSTB Input — Số lượng nhận &amp; Tồn kho</h1>
-      <p class="hero-sub">Hướng dẫn từng bước để GSTB đối chiếu hàng hóa thực tế và cập nhật thông tin lên hệ thống Merchandising: <strong>SL Nhận</strong> và <strong>Tồn kho</strong>.</p>
-      <div class="hero-pills">
-        <span class="pill"><span class="dot"></span>Kiểm kho thực tế</span>
-        <span class="pill"><span class="dot"></span>Dành cho GSTB</span>
-        <span class="pill"><span class="dot"></span>Hệ thống: unime.acacy.com.vn</span>
+      <div class="brandline">
+        <div class="mark">U</div>
+        <div class="bt">Unime System<span>DT MERCHANDISING CHANNEL</span></div>
+      </div>
+      <h1>Từ một checklist vận hành, thành hệ thống quản trị toàn bộ đội ngũ hiện trường</h1>
+      <p class="lead">Câu chuyện về những gì chúng tôi đã xây cùng Unilever trong thời gian qua — và những gì sẵn sàng cho giai đoạn tiếp theo.</p>
+      <div class="hero-stats">
+        <div><div class="num">5</div><div class="lbl">hệ thống thành phần đang vận hành</div></div>
+        <div><div class="num">19</div><div class="lbl">tính năng đã hoàn thiện, bảo trì ổn định</div></div>
+        <div><div class="num">18</div><div class="lbl">nghiệp vụ trên ứng dụng hiện trường</div></div>
+        <div><div class="num">5</div><div class="lbl">hạng mục đề xuất 2026</div></div>
       </div>
     </div>
-    <svg class="hero-art" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="100" r="92" fill="rgba(255,255,255,.05)"/>
-      <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1.5"/>
-      <g transform="translate(50,55)">
-        <rect x="0" y="30" width="100" height="60" rx="6" fill="#ffffff" fill-opacity=".95"/>
-        <rect x="0" y="30" width="100" height="60" rx="6" fill="none" stroke="#0d1b4c" stroke-opacity=".08"/>
-        <path d="M0 30 L50 0 L100 30" fill="#3bc4e0"/>
-        <path d="M0 30 L50 0 L100 30" fill="none" stroke="#0d1b4c" stroke-opacity=".12"/>
-        <rect x="14" y="44" width="26" height="26" rx="3" fill="#1f6fd6"/>
-        <rect x="44" y="44" width="26" height="26" rx="3" fill="#0d1b4c"/>
-        <rect x="14" y="44" width="26" height="26" rx="3" fill="none" stroke="#fff" stroke-opacity=".25"/>
-        <rect x="44" y="44" width="26" height="26" rx="3" fill="none" stroke="#fff" stroke-opacity=".25"/>
-        <circle cx="86" cy="57" r="9" fill="#f5a623"/>
-        <path d="M82 57l3 3 6-6" stroke="#0d1b4c" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-    </svg>
-  </div>
-</div>
-
-<div class="wrap">
-
-  <div class="logic">
-    <img src="images/infor.jpg" alt="Tổng quan quy trình GSTB Input" style="width: 45px;">
-    <p><strong>Nguyên tắc chung:</strong> mọi số liệu trên hệ thống phải khớp với thực tế tại NPP. GSTB kiểm kho trực tiếp, rồi mới nhập số liệu — không nhập trước khi kiểm.</p>
-  </div>
-
-  <section class="section-block overview">
-    <div class="part-label"><span class="dot"></span>Tổng quan</div>
-    <div class="section-head">
-      <h2>Hai việc GSTB cần làm trong bước Input</h2>
-    </div>
-    <p class="section-desc">"GSTB Input" gồm hai luồng riêng biệt trên cùng hệ thống Merchandising. Xác định đúng luồng trước khi thao tác để tránh nhập sai mục.</p>
-
-    <div class="tracks">
-      <div class="track recv">
-        <span class="tag">Số lượng nhận</span>
-        <h3>SL Nhận hàng POSM</h3>
-        <p>Đối chiếu POSM vừa được giao về NPP so với kế hoạch (Plan out), nhập số lượng thực nhận theo từng đợt giao.</p>
-        <div class="path">Báo cáo → BC thực nhận POSM</div>
+    <div class="frame">
+      <div class="frame-head">
+        <div class="mark">U</div>
+        <div class="ft">Unime System<span>DT Merchandising Channel</span></div>
       </div>
-      <div class="track stock">
-        <span class="tag">Tồn kho</span>
-        <h3>Tồn kho POSM thực tế</h3>
-        <p>Kiểm đếm toàn bộ POSM đang tồn tại NPP tại thời điểm hiện tại, không phân biệt mới nhận hay tồn cũ.</p>
-        <div class="path">Báo cáo → BC tồn kho GSTB</div>
-      </div>
-    </div>
-
-    <figure class="shot" onerror="this.classList.add('missing')">
-      <img src="images/gstbmenu.png" alt="">
-      <figcaption>Ảnh minh họa tài khoản test</code></figcaption>
-    </figure>
-  </section>
-
-  <section class="section-block part-a">
-    <div class="part-label"><span class="dot"></span>SỐ LƯỢNG NHẬN</div>
-    <div class="section-head">
-      <h2>Nhập SL nhận POSM (BC thực nhận POSM)</h2>
-    </div>
-    <p class="section-desc">Áp dụng khi NPP vừa nhận một lô POSM mới từ kế hoạch phân bổ (Plan out).</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h4>Vào menu Báo cáo → BC thực nhận POSM</h4>
-          <p>Từ màn hình Merchandising, mở menu <b>BÁO CÁO</b> ở thanh điều hướng bên trái, chọn <b>BC thực nhận POSM</b>.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h4>Lọc đúng khoảng thời gian và NPP</h4>
-          <p>Chọn <b>Từ ngày – Đến ngày</b>, và có thể lọc thêm theo <b>Nhà phân phối</b>, <b>Loại POSM</b>, <b>Trạng thái nhận</b>, <b>Trạng thái xác nhận</b> rồi bấm <b>Tìm kiếm</b>.</p>
-          <p>Kết quả hiển thị: Ngày plan out, Ngày dự kiến giao, NPP, Loại POSM, Số lượng plan out, Số lượng thực nhận đợt 1 / đợt 2, Người đã xác nhận.</p>
-          <figure class="shot">
-            <img src="images/gstbdsslnhan.png"alt="">
-          <figcaption>Ảnh minh họa tài khoản test</code></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h4>Chi tiết dòng cần nhập</h4>
-          <p>Mỗi dòng hiển thị thông tin POSM tương ứng. Bấm chọn <b>icon " <img src="images/iconedit.png"alt=""style="width: 24px; border: 5px; border-radius: 3px;"> "</b> để xem thêm và nhập <b> SL nhận</b></p>
-          <table class="field-table">
-            <tr><th>Trường</th><th>Ý nghĩa</th></tr>
-            <tr><td class="k">Loại POSM</td><td>Mã hàng POSM theo đợt Planout</td></tr>
-            <tr><td class="k">Số lượng plan out</td><td>Số lượng kế hoạch đã phân bổ cho NPP</td></tr>
-            <tr><td class="k">Số lượng thực nhận đợt 1</td><td>Số POSM thực tế nhận được ở lần giao đầu</td></tr>
-            <tr><td class="k">Số lượng thực nhận đợt 2</td><td>Số POSM thực tế nhận thêm nếu giao thành nhiều đợt</td></tr>
-          </table>
-          <figure class="shot">
-            <img src="images/gstbposm.png"alt="">
-            <figcaption>Ảnh minh họa tài khoản test</code></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h4>Nhập số lượng thực nhận và Lưu</h4>
-          <p>Điền đúng số lượng đã đếm thực tế vào ô tương ứng, ghi chú (nếu có sai lệch với plan out), sau đó bấm <b>Lưu</b>.</p>
-          <div class="note"><b>Lưu ý:</b> chỉ bấm "Xác nhận" khi số liệu đã chốt cuối cùng — sau khi xác nhận sẽ khó chỉnh sửa lại.</div>
-          <figure class="shot">
-            <img src="images/gstbxacnhantonkho.png"alt="">
-            <figcaption>Ảnh minh họa tài khoản test</code></figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-block part-b">
-    <div class="part-label"><span class="dot"></span>TỒN KHO</div>
-    <div class="section-head">
-      <h2>Nhập Tồn kho (BC tồn kho GSTB)</h2>
-    </div>
-    <p class="section-desc">Áp dụng cho việc kiểm kê tồn kho định kỳ hoặc khi cần cập nhật số tồn thực tế tại NPP lên hệ thống.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h4>Vào Báo cáo → BC tồn kho GSTB</h4>
-          <p>Từ màn hình Merchandising, mở menu <b>BÁO CÁO</b> ở thanh điều hướng bên trái, chọn <b>BC tồn kho GSTB</b></p>
-          <p>→ Kiểm tra thông tin <b>Nhà phân phối</b> cần kiểm tồn.</p>
-          <figure class="shot">
-            <img src="images/gstbbctonkho.png"alt="">
-            <figcaption>Ảnh minh họa tài khoản test</code></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h4>Tick chọn danh sách POSM cần kiểm tồn</h4>
-          <p>Trường thông tin <b>Loại POSM</b>, tick chọn toàn bộ <b><u><i>sellect all</i></u></b> hoặc <b>tick chọn " <img src="images/icontick.png"alt=""style="width: 24px; border: 5px; border-radius: 3px;>"> "</b> từng mã POSM đang có tại NPP mà bạn sẽ kiểm đếm trong đợt này. → Bấm <b>Tạo báo cáo</b></p>
-          <figure class="shot">
-            <img src="images/gstbbctonkhoaddposm.png"alt="">
-            <figcaption>Ảnh minh họa tài khoản test</code></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h4>Bấm "Tạo báo cáo" thành công</h4>
-          <p>Hệ thống sẽ tạo một dòng báo cáo mới <b>Ngày hiện tại</b>, hiển thị ở danh sách phía dưới cùng với Nhà phân phối và Thời gian tạo báo cáo.</p>
-          <figure class="shot">
-            <img src="images/gstbbctonkhotaothanhcong.png"alt="">
-            <figcaption>Ảnh minh họa tài khoản test</code></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h4>Mở báo cáo vừa tạo, nhập tồn thực tế</h4>
-          <p>Bấm dấu <b>(+)</b> ở đầu dòng để mở chi tiết. Bảng hiện ra danh sách các mã POSM đã chọn (Mã POSM, Tên POSM, Số lượng).<br> → <b>Nhập số lượng</b> đếm được thực tế vào từng dòng, sau đó bấm <b>Xác nhận</b>.</p>
-          <figure class="shot">
-            <img src="images/gstbbctonkhoadd.png"alt="">
-            <figcaption>Ảnh minh họa tài khoản test</code></figcaption>
-          </figure>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h4>Nếu phát sinh thêm POSM cần kiểm trong ngày</h4>
-          <p>Trường hợp báo cáo trong ngày đã được tạo nhưng cần bổ sung thêm POSM mới phát hiện:</p>
-          <ul>
-            <li>Lặp lại <b>Bước 2 → 3 → 4</b> để thêm mã POSM mới vào cùng báo cáo của ngày đó</li>
-            <li>Nhập số lượng cho (các) POSM mới thêm</li>
-            <li>Kiểm tra lại số lượng của <b>tất cả POSM</b> đã kiểm trong ngày (không chỉ mã mới)</li>
-            <li>Bấm <b>Xác nhận</b> để lưu toàn bộ</li>
-          </ul>
-          <div class="note"><b>Lưu ý:</b> mỗi NPP chỉ nên có một BC tồn kho GSTB / ngày — bổ sung vào báo cáo đã có thay vì tạo báo cáo mới trùng ngày.</div>
-          <figure class="shot">
-            <img src="images/gstbxacnhanthanhcong.png"alt="">
-            <figcaption>Ảnh minh họa tài khoản test</code></figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="final">
-    <div class="section-head">
-      <span class="tag">TÓM TẮT</span>
-      <h2>Trước khi rời hệ thống, kiểm tra lại</h2>
-    </div>
-    <div class="checklist">
-      <div><span class="check-ico">✓</span>Đã kiểm tồn thực tế tại NPP trước khi nhập số liệu lên hệ thống</div>
-      <div><span class="check-ico">✓</span>Số lượng thực nhận (đợt 1/2) khớp với phiếu giao hàng</div>
-      <div><span class="check-ico">✓</span>Đã tick đúng danh sách POSM trước khi "Tạo báo cáo"</div>
-      <div><span class="check-ico">✓</span>Không tạo trùng BC tồn kho GSTB trong cùng một ngày</div>
-      <div><span class="check-ico">✓</span>Đã nhập số lượng cho toàn bộ POSM trong báo cáo trước khi "Xác nhận"</div>
-      <div><span class="check-ico">✓</span>Chỉ "Xác nhận" khi số liệu đã chốt, không còn thay đổi</div>
+      <div class="fgroup">Tổng quan</div>
+      <div class="fitem active"><span class="dot"></span>Digital Transformation</div>
+      <div class="fgroup">Umer Ecosystem</div>
+      <div class="fitem"><span class="dot"></span>Hướng dẫn POSM · GSTB</div>
+      <div class="fitem"><span class="dot"></span>AcacyOne App</div>
+      <div class="fgroup">Khác</div>
+      <div class="fitem"><span class="dot"></span>Góc phản hồi</div>
     </div>
   </div>
+</header>
 
-</div>
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Chương 1</div>
+      <h2>Hành trình xây hệ thống</h2>
+      <p>Không bắt đầu từ một sản phẩm hoàn chỉnh, mà từ nhu cầu vận hành thực tế — quản lý con người, cửa hàng và kết quả trưng bày mỗi ngày. Hệ thống được đắp dần theo đúng nhịp phát triển của đội ngũ.</p>
+    </div>
+    <div class="road">
+      <svg viewBox="0 0 1080 240" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="roadGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#3E6BFF"/><stop offset="1" stop-color="#7C4DFF"/>
+          </linearGradient>
+        </defs>
+        <path d="M70,130 C185,130 185,70 300,70" fill="none" stroke="url(#roadGrad)" stroke-width="3"/>
+        <path d="M300,70 C415,70 415,150 530,150" fill="none" stroke="url(#roadGrad)" stroke-width="3"/>
+        <path d="M530,150 C645,150 645,70 760,70" fill="none" stroke="url(#roadGrad)" stroke-width="3"/>
+        <path d="M760,70 C875,70 875,130 990,130" fill="none" stroke="var(--coral)" stroke-width="3" stroke-dasharray="7 7"/>
 
-<footer>
-  <p class="footer-main">Hướng dẫn nội bộ POSM · ACACY × Unilever Merchandising</p>
-  <p class="footer-sign"><img src="images/Lwhite.png"alt=""style="width: 24px; border-radius: 19px;"> Linhvt - BA dept</p>
-</footer>
+        <circle cx="70" cy="130" r="30" fill="url(#roadGrad)"/>
+        <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(58,118)">
+          <rect x="0" y="0" width="7" height="7" rx="1.5"/><rect x="11" y="0" width="7" height="7" rx="1.5"/><rect x="0" y="11" width="7" height="7" rx="1.5"/><rect x="11" y="11" width="7" height="7" rx="1.5"/>
+        </g>
+        <text x="70" y="188" text-anchor="middle" class="roadlabel">Web Unime</text>
+        <text x="70" y="204" text-anchor="middle" class="roadsub">Nền tảng lõi · Done</text>
+
+        <circle cx="300" cy="70" r="30" fill="url(#roadGrad)"/>
+        <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(288,58)">
+          <path d="M0 12l4-7 4 5 3-4 7 6"/><path d="M0 19h18"/>
+        </g>
+        <text x="300" y="128" text-anchor="middle" class="roadlabel">Dashboard</text>
+        <text x="300" y="144" text-anchor="middle" class="roadsub">Lớp giám sát · Done</text>
+
+        <circle cx="530" cy="150" r="30" fill="url(#roadGrad)"/>
+        <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(518,138)">
+          <path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7l8-4z"/>
+        </g>
+        <text x="530" y="208" text-anchor="middle" class="roadlabel">AcacyOne</text>
+        <text x="530" y="224" text-anchor="middle" class="roadsub">Đội ngũ &amp; thị trường · Done</text>
+
+        <circle class="pulse-ring" cx="760" cy="70" r="38" fill="none" stroke="var(--amber)" stroke-width="2"/>
+        <circle cx="760" cy="70" r="30" fill="url(#roadGrad)"/>
+        <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(748,58)">
+          <rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>
+        </g>
+        <text x="760" y="128" text-anchor="middle" class="roadlabel">App Unime</text>
+        <text x="760" y="144" text-anchor="middle" class="roadsub">Đang pilot</text>
+
+        <circle cx="990" cy="130" r="30" fill="var(--panel)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
+        <g stroke="var(--coral)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(981,118)">
+          <path d="M2 0v22"/><path d="M2 2h13l-3.5 4.5L15 11H2"/>
+        </g>
+        <text x="990" y="188" text-anchor="middle" class="roadlabel">System FWFC</text>
+        <text x="990" y="204" text-anchor="middle" class="roadsub" fill="var(--coral)">Đề xuất 2026</text>
+      </svg>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>System Web Unime<span class="tag">nền tảng quản trị lõi</span></h3>
+        <p>Điểm khởi đầu: chấm công, báo cáo trưng bày, xử lý SOS, quản lý dữ liệu gốc (nhân viên, cửa hàng, nhà phân phối, sản phẩm), target KPI, beatplan và QC — xương sống mà mọi nghiệp vụ khác đứng trên đó, nay gần như toàn bộ đã ổn định ở trạng thái bảo trì.</p>
+      </div>
+      <div class="t-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 12l4-7 4 5 3-4 7 6"/><path d="M3 19h18"/></svg></div>
+        <h3>Dashboard<span class="tag">lớp giám sát</span></h3>
+        <p>Khi dữ liệu vận hành đã đủ dày, chúng tôi xây lớp quan sát: kết quả trưng bày, kỷ luật hiện trường, hồ sơ nhân sự, kết quả QC và hiệu suất KPI — cho phép quản lý cấp trên nhìn toàn cảnh mà không cần vào từng nghiệp vụ con.</p>
+      </div>
+      <div class="t-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7l8-4z"/></svg></div>
+        <h3>AcacyOne<span class="tag">câu chuyện đội ngũ</span></h3>
+        <p>Một lớp giới thiệu tổng quan về đội ngũ và thị trường — phục vụ trao đổi nội bộ và với đối tác, đã hoàn thiện và duy trì ổn định.</p>
+      </div>
+      <div class="t-item">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+        <h3>System APP Unime<span class="tag">đưa hệ thống ra hiện trường</span></h3>
+        <p>Giai đoạn quan trọng nhất: đóng gói toàn bộ nghiệp vụ vào một ứng dụng cho nhân viên thị trường — từ beatplan, chấm công, chi tiết cửa hàng, đến nhận diện khuôn mặt và A.I phát hiện trưng bày không đạt. Giao diện mới đang pilot, mở rộng chạy trên cả iOS và Android.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Chương 2</div>
+      <h2>Hệ thống hôm nay</h2>
+      <p>Bốn trụ cột đã đi vào vận hành ổn định, và một trụ cột — ứng dụng hiện trường — đang là trọng tâm mở rộng.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>System Web Unime</h3>
+        <div class="count">10</div>
+        <p>Nghiệp vụ quản trị lõi, hầu hết ở trạng thái bảo trì; riêng Quản lý POSM (tồn kho, lắp đặt tại cửa hàng) đang pilot.</p>
+      </div>
+      <div class="pillar">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="13" y="8" width="3" height="10"/><rect x="19" y="5" width="0" height="0"/></svg></div>
+        <h3>Dashboard</h3>
+        <div class="count">6</div>
+        <p>Toàn bộ khối giám sát đã ổn định; POSM Dashboard (nhập – tồn – lắp đặt – thu hồi) đang trong giai đoạn coding.</p>
+      </div>
+      <div class="pillar">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5 21c0-4 3.2-6.5 7-6.5s7 2.5 7 6.5"/></svg></div>
+        <h3>AcacyOne</h3>
+        <div class="count">5</div>
+        <p>Tổng quan, đội ngũ, thị trường — hoàn thiện và duy trì.</p>
+      </div>
+    </div>
+
+    <div class="spotlight">
+      <div class="spotlight-copy">
+        <span class="pill">Đang pilot</span>
+        <h3>System APP Unime</h3>
+        <p>Ứng dụng dành cho nhân viên thị trường là nơi mọi nghiệp vụ hội tụ: từ lịch làm việc, chi tiết cửa hàng, đến quy trình duyệt nghỉ phép phân theo từng cấp (Mer trình SUP duyệt, SUP trình AMM duyệt, AMM trình cấp quản lý cao nhất duyệt) và A.I nhận diện khuôn mặt, A.I phát hiện trưng bày không đạt. Giao diện mới đang được pilot, hướng tới chạy song song trên iOS và Android.</p>
+      </div>
+      <div class="ledger">
+        <div class="row"><span>Chi tiết cửa hàng</span><span>Visibility, QRCode, chấm công, promotion, SOS, POSM khảo sát, A.I detect hình ảnh</span></div>
+        <div class="row"><span>Thời gian làm việc</span><span>Tổng giờ, số cửa hàng đã viếng thăm, lịch sử CI/CO</span></div>
+        <div class="row"><span>KPI</span><span>% hoàn thành KPI, lương tạm tính</span></div>
+        <div class="row"><span>Profile &amp; nhận diện</span><span>Thông tin nhân viên, chụp khuôn mặt 3 góc cho hồ sơ</span></div>
+        <div class="row"><span>Đào tạo, hỗ trợ, thông báo</span><span>Vận hành song song cùng nghiệp vụ chính</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="statband">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Chương 3</div>
+      <h2>Con số sau chặng đường</h2>
+    </div>
+    <div class="donut-row">
+      <div class="donut-wrap">
+        <svg viewBox="0 0 200 200">
+          <g transform="rotate(-90 100 100)">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--panel-2)" stroke-width="26"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--green)" stroke-width="26" stroke-dasharray="353.9 502.65" stroke-dashoffset="0"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--amber)" stroke-width="26" stroke-dasharray="37.2 502.65" stroke-dashoffset="-353.9"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--blue-glow)" stroke-width="26" stroke-dasharray="18.6 502.65" stroke-dashoffset="-391.1"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--coral)" stroke-width="26" stroke-dasharray="93.0 502.65" stroke-dashoffset="-409.7"/>
+          </g>
+        </svg>
+        <div class="center"><div class="big">27</div><div class="small">hạng mục</div></div>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><span class="sw" style="background:var(--green)"></span><div><div class="num">19</div><div class="lbl">Đã hoàn thiện, đang bảo trì ổn định (Web Unime, Dashboard, AcacyOne)</div></div></div>
+        <div class="legend-item"><span class="sw" style="background:var(--amber)"></span><div><div class="num">2</div><div class="lbl">Đang pilot: Quản lý POSM &amp; giao diện App mới</div></div></div>
+        <div class="legend-item"><span class="sw" style="background:var(--blue-glow)"></span><div><div class="num">1</div><div class="lbl">Đang coding: POSM Dashboard cho NPP &amp; cửa hàng</div></div></div>
+        <div class="legend-item"><span class="sw" style="background:var(--coral)"></span><div><div class="num">5</div><div class="lbl">Đề xuất phát triển 2026: System FWFC</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Chương 4</div>
+      <h2>Đề xuất phát triển 2026</h2>
+      <p>Khi vận hành đã ổn định ở cấp Mer và cửa hàng, bước tiếp theo là mở rộng quyền quản trị và báo cáo cho các cấp giám sát và điều phối hiện trường — System FWFC.</p>
+    </div>
+    <div class="flow">
+      <svg viewBox="0 0 1080 140">
+        <line x1="60" y1="70" x2="962" y2="70" stroke="var(--coral)" stroke-width="2" stroke-dasharray="6 6"/>
+        <path d="M955,60 L978,70 L955,80 Z" fill="var(--coral)"/>
+        <g>
+          <circle cx="90" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="90" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">1</text>
+          <text x="90" y="112" text-anchor="middle" class="roadsub">AMM FC SUP</text>
+        </g>
+        <g>
+          <circle cx="300" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="300" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">2</text>
+          <text x="300" y="112" text-anchor="middle" class="roadsub">SUP FC Mer</text>
+        </g>
+        <g>
+          <circle cx="510" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="510" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">3</text>
+          <text x="510" y="112" text-anchor="middle" class="roadsub">AMM FW</text>
+        </g>
+        <g>
+          <circle cx="720" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="720" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">4</text>
+          <text x="720" y="112" text-anchor="middle" class="roadsub">SUP FW</text>
+        </g>
+        <g>
+          <circle cx="912" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="912" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">5</text>
+          <text x="912" y="112" text-anchor="middle" class="roadsub">Report</text>
+        </g>
+        <g transform="translate(1000,38)">
+          <path d="M2 0v64" stroke="var(--coral)" stroke-width="2"/>
+          <path d="M2 4h32l-9 12 9 12H2Z" fill="var(--coral)"/>
+          <text x="18" y="21" text-anchor="middle" fill="#0B1024" font-family="Inter" font-weight="700" font-size="12">2026</text>
+        </g>
+      </svg>
+    </div>
+    <div class="manifest">
+      <div class="m-row"><div><h4>AMM FC SUP</h4><p>Quản trị cấp AMM cho khối giám sát field coordinator</p></div><span class="flag">Đề xuất 2026</span></div>
+      <div class="m-row"><div><h4>SUP FC Mer</h4><p>Công cụ giám sát dành cho SUP quản lý đội Mer field coordinator</p></div><span class="flag">Đề xuất 2026</span></div>
+      <div class="m-row"><div><h4>AMM FW</h4><p>Quản trị cấp AMM cho khối field worker</p></div><span class="flag">Đề xuất 2026</span></div>
+      <div class="m-row"><div><h4>SUP FW</h4><p>Công cụ giám sát dành cho SUP quản lý đội field worker</p></div><span class="flag">Đề xuất 2026</span></div>
+      <div class="m-row"><div><h4>Report</h4><p>Lớp báo cáo tổng hợp cho toàn bộ khối FWFC</p></div><span class="flag">Đề xuất 2026</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>Từ một checklist vận hành, đến một hệ thống mà Unilever có thể tin cậy để mở rộng tiếp.</h2>
+    <p>Chúng tôi mong muốn tiếp tục đồng hành cùng Unilever trong giai đoạn tới — đưa System FWFC vào vận hành và hoàn thiện các hạng mục đang pilot, để hệ thống phủ kín từ cửa hàng đến cấp quản lý khu vực.</p>
+    <div class="sign">Đội ngũ phát triển Unime</div>
+  </div>
+</section>
 
 </body>
 </html>
