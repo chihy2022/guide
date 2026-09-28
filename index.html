@@ -1,413 +1,150 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Unime System × Unilever — Hành trình hệ thống</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>ACACY – Hệ sinh thái công nghệ đồng hành cùng Unilever</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#0B1024; --panel:#141B33; --panel-2:#1B2444; --line:rgba(153,171,224,0.16);
-    --blue:#3E6BFF; --blue-glow:#7FA0FF; --text:#EAEEFC; --text-dim:rgba(234,238,252,0.62);
-    --green:#33C97F; --amber:#F2A93B; --coral:#FF6B6B;
-    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
-  }
-  html{ scroll-padding-top:env(safe-area-inset-top,0px); }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{ background:var(--ink); color:var(--text); font-family:'Inter',system-ui,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; }
-  h1,h2,h3,.serif{ font-family:'Lora',Georgia,serif; }
-  .wrap{ max-width:1040px; margin:0 auto; padding:0 28px; }
-  section{ padding:96px 0; }
-  @media(max-width:640px){ section{ padding:60px 0; } .wrap{ padding:0 20px; } }
-  .eyebrow{ color:var(--blue-glow); font-weight:700; font-size:14px; letter-spacing:0.01em; }
-
-  /* ICON BADGE */
-  .icon{ width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(155deg,var(--blue),#7C4DFF); flex-shrink:0; box-shadow:0 8px 20px -8px rgba(62,107,255,0.55); }
-  .icon svg{ width:22px; height:22px; stroke:#fff; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-
-  /* HERO */
-  .hero{ position:relative; overflow:hidden; padding:104px 0 90px;
-    background:
-      radial-gradient(680px 420px at 82% -10%, rgba(62,107,255,0.35), transparent 60%),
-      radial-gradient(520px 380px at -5% 90%, rgba(124,77,255,0.22), transparent 60%),
-      var(--ink); }
-  .hero .wrap{ display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center; position:relative; z-index:1; }
-  @media(max-width:860px){ .hero .wrap{ grid-template-columns:1fr; } }
-  .brandline{ display:flex; align-items:center; gap:12px; margin-bottom:28px; opacity:0; animation:rise .7s ease-out .05s forwards; }
-  .mark{ width:38px; height:38px; border-radius:10px; background:linear-gradient(155deg,var(--blue),#7C4DFF);
-    display:flex; align-items:center; justify-content:center; font-family:'Lora',serif; font-weight:700; color:#fff; font-size:18px; }
-  .brandline .bt{ font-weight:700; font-size:15px; letter-spacing:0.01em; }
-  .brandline .bt span{ display:block; font-size:11px; font-weight:500; color:var(--text-dim); letter-spacing:0.04em; }
-  .hero h1{ font-size:clamp(32px,4.6vw,50px); font-weight:600; line-height:1.15; max-width:16ch;
-    opacity:0; animation:rise .8s ease-out .15s forwards; }
-  .hero p.lead{ margin-top:22px; max-width:50ch; font-size:17.5px; color:var(--text-dim);
-    opacity:0; animation:rise .8s ease-out .3s forwards; }
-  @keyframes rise{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
-  .hero-stats{ margin-top:48px; display:flex; gap:40px; flex-wrap:wrap; opacity:0; animation:rise .8s ease-out .45s forwards; }
-  .hero-stats .num{ font-family:'Lora',serif; font-size:36px; font-weight:700; background:linear-gradient(120deg,#fff,var(--blue-glow));
-    -webkit-background-clip:text; background-clip:text; color:transparent; }
-  .hero-stats .lbl{ font-size:13.5px; color:var(--text-dim); margin-top:4px; max-width:18ch; }
-  @media(prefers-reduced-motion:reduce){ .brandline,.hero h1,.hero p.lead,.hero-stats,.frame{ opacity:1; animation:none; } }
-
-  /* PRODUCT FRAME (decorative, echoes the app's own nav) */
-  .frame{ background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:22px;
-    box-shadow:0 30px 60px -24px rgba(0,0,0,0.55); opacity:0; animation:rise .8s ease-out .35s forwards; }
-  .frame-head{ display:flex; align-items:center; gap:10px; padding-bottom:16px; border-bottom:1px solid var(--line); margin-bottom:16px; }
-  .frame-head .mark{ width:30px; height:30px; font-size:14px; border-radius:8px; }
-  .frame-head .ft{ font-weight:700; font-size:14.5px; }
-  .frame-head .ft span{ display:block; font-size:10px; color:var(--text-dim); font-weight:500; letter-spacing:0.05em; }
-  .fgroup{ font-size:11px; color:var(--text-dim); letter-spacing:0.06em; text-transform:uppercase; margin:16px 4px 8px; }
-  .fgroup:first-of-type{ margin-top:0; }
-  .fitem{ display:flex; align-items:center; gap:10px; padding:9px 10px; border-radius:9px; font-size:14px; color:var(--text-dim); }
-  .fitem.active{ background:linear-gradient(90deg,rgba(62,107,255,0.9),rgba(124,77,255,0.75)); color:#fff; font-weight:600; }
-  .fitem .dot{ width:7px; height:7px; border-radius:50%; background:currentColor; opacity:0.6; flex-shrink:0; }
-
-  /* TIMELINE */
-  .section-head{ margin-bottom:48px; max-width:62ch; }
-  .section-head h2{ font-size:clamp(24px,3.4vw,32px); font-weight:600; margin-top:10px; }
-  .section-head p{ margin-top:14px; color:var(--text-dim); font-size:16px; max-width:58ch; }
-  .timeline{ position:relative; padding-left:32px; border-left:2px solid var(--line); }
-  .t-item{ position:relative; padding-bottom:48px; }
-  .t-item:last-child{ padding-bottom:0; }
-  .t-item .icon{ position:absolute; left:-59px; top:0; width:38px; height:38px; border-radius:10px; }
-  .t-item .icon svg{ width:18px; height:18px; }
-  .t-item h3{ font-size:20px; font-weight:600; }
-  .t-item .tag{ display:inline-block; font-size:13px; color:var(--text-dim); margin-left:10px; font-family:'Inter',sans-serif; font-weight:500; }
-  .t-item p{ margin-top:8px; color:var(--text-dim); max-width:60ch; font-size:15.5px; }
-
-  /* PILLARS */
-  .pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-  @media(max-width:760px){ .pillars{ grid-template-columns:1fr; } }
-  .pillar{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:26px; }
-  .pillar h3{ font-size:17px; font-weight:600; margin-top:16px; }
-  .pillar .count{ font-family:'Lora',serif; font-size:30px; font-weight:700; color:var(--blue-glow); margin:8px 0 8px; }
-  .pillar p{ font-size:14.5px; color:var(--text-dim); }
-
-  .spotlight{ margin-top:20px; border:1px solid var(--line); border-radius:18px; overflow:hidden;
-    background:linear-gradient(150deg,var(--panel-2),var(--panel));
-    display:grid; grid-template-columns:1.1fr 1fr; }
-  @media(max-width:760px){ .spotlight{ grid-template-columns:1fr; } }
-  .spotlight-copy{ padding:38px; border-right:1px solid var(--line); }
-  @media(max-width:760px){ .spotlight-copy{ border-right:none; border-bottom:1px solid var(--line); } }
-  .pill{ display:inline-block; font-size:12.5px; font-weight:700; color:var(--amber); border:1px solid rgba(242,169,59,0.5);
-    background:rgba(242,169,59,0.1); padding:5px 12px; border-radius:999px; }
-  .spotlight-copy h3{ font-size:24px; margin-top:12px; font-weight:600; }
-  .spotlight-copy p{ margin-top:12px; color:var(--text-dim); font-size:15.5px; }
-  .ledger{ padding:38px; }
-  .ledger .row{ display:flex; justify-content:space-between; gap:16px; padding:13px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
-  .ledger .row:last-child{ border-bottom:none; }
-  .ledger .row span:first-child{ color:var(--text); font-weight:600; }
-  .ledger .row span:last-child{ color:var(--text-dim); text-align:right; max-width:56%; }
-
-  /* STAT BAND */
-  .statband{ background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-  .stats-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
-  @media(max-width:640px){ .stats-row{ grid-template-columns:1fr; gap:28px; } }
-  .stat{ border-left:3px solid var(--green); padding-left:20px; }
-  .stat.amber{ border-color:var(--amber); }
-  .stat.coral{ border-color:var(--coral); }
-  .stat .num{ font-family:'Lora',serif; font-size:46px; font-weight:700; }
-  .stat.amber .num{ color:var(--amber); } .stat.coral .num{ color:var(--coral); } .stat .num{ color:var(--green); }
-  .stat .lbl{ margin-top:6px; font-size:15px; color:var(--text-dim); }
-
-  /* ROADMAP */
-  .manifest{ border:1px solid var(--line); border-radius:16px; overflow:hidden; }
-  .m-row{ display:grid; grid-template-columns:1.4fr 2.4fr auto; gap:20px; align-items:center;
-    padding:20px 24px; border-bottom:1px solid var(--line); background:var(--panel); }
-  .m-row:nth-child(even){ background:var(--panel-2); }
-  .m-row:last-child{ border-bottom:none; }
-  .m-row h4{ font-size:16.5px; font-weight:600; }
-  .m-row p{ font-size:14.5px; color:var(--text-dim); }
-  .flag{ font-size:12.5px; font-weight:700; color:var(--coral); border:1px solid rgba(255,107,107,0.5);
-    background:rgba(255,107,107,0.1); padding:6px 12px; border-radius:999px; white-space:nowrap; justify-self:end; }
-  @media(max-width:640px){ .m-row{ grid-template-columns:1fr; } .flag{ justify-self:start; } }
-
-  /* ROAD DIAGRAM */
-  .road{ margin-bottom:52px; }
-  .road svg{ width:100%; height:auto; display:block; overflow:visible; }
-  .roadlabel{ font-family:'Inter',sans-serif; font-size:15px; font-weight:700; fill:var(--text); }
-  .roadsub{ font-family:'Inter',sans-serif; font-size:11.5px; fill:var(--text-dim); }
-  .pulse-ring{ animation:pulse 2.4s ease-in-out infinite; transform-origin:center; transform-box:fill-box; }
-  @keyframes pulse{ 0%,100%{ opacity:.6; transform:scale(1); } 50%{ opacity:0; transform:scale(1.3); } }
-  @media(prefers-reduced-motion:reduce){ .pulse-ring{ animation:none; } }
-
-  /* DONUT */
-  .donut-row{ display:flex; align-items:center; gap:52px; flex-wrap:wrap; }
-  .donut-wrap{ position:relative; width:196px; height:196px; flex-shrink:0; }
-  .donut-wrap svg{ width:100%; height:100%; }
-  .donut-wrap .center{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
-  .donut-wrap .center .big{ font-family:'Lora',serif; font-size:34px; font-weight:700; }
-  .donut-wrap .center .small{ font-size:12px; color:var(--text-dim); margin-top:2px; }
-  .legend{ display:flex; flex-direction:column; gap:16px; flex:1; min-width:240px; }
-  .legend-item{ display:flex; align-items:flex-start; gap:12px; }
-  .legend-item .sw{ width:11px; height:11px; border-radius:3px; flex-shrink:0; margin-top:5px; }
-  .legend-item .num{ font-family:'Lora',serif; font-weight:700; font-size:19px; }
-  .legend-item .lbl{ font-size:14px; color:var(--text-dim); margin-top:1px; }
-
-  /* ROADMAP FLOW */
-  .flow{ margin-bottom:26px; }
-  .flow svg{ width:100%; height:auto; display:block; }
-
-  /* CLOSING */
-  .closing{ position:relative; overflow:hidden;
-    background: radial-gradient(600px 340px at 15% 0%, rgba(62,107,255,0.28), transparent 60%), var(--ink); }
-  .closing h2{ font-size:clamp(26px,4vw,38px); font-weight:600; max-width:20ch; }
-  .closing p{ margin-top:16px; color:var(--text-dim); max-width:56ch; font-size:16.5px; }
-  .closing .sign{ margin-top:40px; padding-top:24px; border-top:1px solid var(--line); color:var(--text-dim); font-size:14.5px; }
+:root{--bg:#f6f8fc;--ink:#0d1b3d;--mute:#56627f;--card:#fff;--line:#dbe2f0;--blue:#1f36c7;--done:#12805c;--pilot:#c77a00;--impl:#1f36c7;--code:#8a4fd0;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1226;--ink:#eef2ff;--mute:#9aa7c7;--card:#131c38;--line:#25315a;--blue:#7d90ff;--done:#3fcf9b;--pilot:#f0a93a;--impl:#7d90ff;--code:#b98cf0;--on:#0b1226}}
+:root[data-theme="dark"]{--bg:#0b1226;--ink:#eef2ff;--mute:#9aa7c7;--card:#131c38;--line:#25315a;--blue:#7d90ff;--done:#3fcf9b;--pilot:#f0a93a;--impl:#7d90ff;--code:#b98cf0;--on:#0b1226}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 "Be Vietnam Pro",system-ui,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}
+h1{font-size:clamp(34px,6vw,64px);line-height:1.1;font-weight:800;margin:0 0 20px;letter-spacing:-.02em;max-width:16ch}
+h2{font-size:clamp(24px,3.6vw,36px);line-height:1.2;margin:0 0 12px;font-weight:800;letter-spacing:-.01em}
+p{margin:0 0 12px;max-width:66ch}
+.lead{font-size:18px;color:var(--mute)}
+.hero{background:var(--blue);color:#fff;padding:72px 0 56px}
+.hero .lead{color:#dfe5ff}
+.hero .brand{font-weight:700;margin-bottom:28px;opacity:.9}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:40px;border-top:1px solid rgba(255,255,255,.3)}
+.stats div{padding:18px 16px 0 0}
+.stats b{display:block;font-size:40px;line-height:1;font-weight:800}
+.stats span{font-size:14px;color:#dfe5ff}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}
+.tab{font:inherit;text-align:left;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;flex:1 1 170px}
+.tab[aria-selected="true"]{border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue)}
+.tab strong{display:block;font-size:15px}
+.tab small{color:var(--mute);font-size:13px}
+button:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.bar{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-top:8px;background:var(--line)}
+.bar i{display:block;height:100%}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+.panel>p{color:var(--mute)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.chip{font:inherit;font-size:14px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:20px;padding:4px 14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.mods{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:8px}
+.mod{border-left:4px solid var(--c);padding:6px 0 6px 14px}
+.mod h4{margin:0;font-size:15px}
+.mod p{font-size:14px;color:var(--mute);margin:2px 0 4px}
+.tag{font-size:12px;font-weight:700;color:var(--c)}
+.d{--c:var(--done)}.p{--c:var(--pilot)}.i{--c:var(--impl)}.c{--c:var(--code)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:6px}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0;margin-top:24px}
+.flow div{padding:16px;border-top:3px solid var(--blue);background:var(--card);border-right:1px solid var(--line)}
+.flow b{display:block}
+.flow span{font-size:14px;color:var(--mute)}
+.road{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px}
+.road>div{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:12px;padding:20px}
+.road h3{margin:0 0 8px;font-size:18px}
+.road ul{margin:0;padding-left:18px;color:var(--mute);font-size:15px}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:20px}
+.why h3{font-size:17px;margin:0 0 6px}
+.why p{color:var(--mute);font-size:15px}
+.close{background:var(--blue);color:#fff;text-align:left}
+.close h2{max-width:22ch}
+.close p{color:#dfe5ff}
+footer{padding:24px 0;color:var(--mute);font-size:14px}
 </style>
 </head>
 <body>
+<header class="hero"><div class="w">
+<div class="brand">ACACY × Unilever</div>
+<h1>Công nghệ vận hành thị trường, xây cùng Unilever</h1>
+<p class="lead">Từ chấm công, báo cáo trưng bày đến dashboard điều hành và AI nhận diện hình ảnh: ACACY đã xây dựng và đang vận hành một hệ sinh thái khép kín cho đội ngũ Merchandiser, giám sát và quản lý.</p>
+<div class="stats" id="stats"></div>
+</div></header>
 
-<header class="hero">
-  <div class="wrap">
-    <div>
-      <div class="brandline">
-        <div class="mark">U</div>
-        <div class="bt">Unime System<span>DT MERCHANDISING CHANNEL</span></div>
-      </div>
-      <h1>Từ một checklist vận hành, thành hệ thống quản trị toàn bộ đội ngũ hiện trường</h1>
-      <p class="lead">Câu chuyện về những gì chúng tôi đã xây cùng Unilever trong thời gian qua — và những gì sẵn sàng cho giai đoạn tiếp theo.</p>
-      <div class="hero-stats">
-        <div><div class="num">5</div><div class="lbl">hệ thống thành phần đang vận hành</div></div>
-        <div><div class="num">19</div><div class="lbl">tính năng đã hoàn thiện, bảo trì ổn định</div></div>
-        <div><div class="num">18</div><div class="lbl">nghiệp vụ trên ứng dụng hiện trường</div></div>
-        <div><div class="num">5</div><div class="lbl">hạng mục đề xuất 2026</div></div>
-      </div>
-    </div>
-    <div class="frame">
-      <div class="frame-head">
-        <div class="mark">U</div>
-        <div class="ft">Unime System<span>DT Merchandising Channel</span></div>
-      </div>
-      <div class="fgroup">Tổng quan</div>
-      <div class="fitem active"><span class="dot"></span>Digital Transformation</div>
-      <div class="fgroup">Umer Ecosystem</div>
-      <div class="fitem"><span class="dot"></span>Hướng dẫn POSM · GSTB</div>
-      <div class="fitem"><span class="dot"></span>AcacyOne App</div>
-      <div class="fgroup">Khác</div>
-      <div class="fitem"><span class="dot"></span>Góc phản hồi</div>
-    </div>
-  </div>
-</header>
+<section><div class="w">
+<h2>Một dòng dữ liệu, từ cửa hàng đến bàn quản lý</h2>
+<p class="lead">Năm hệ thống kết nối với nhau. Dữ liệu được thu tại cửa hàng, kiểm soát chất lượng, rồi trở thành thông tin để ra quyết định.</p>
+<div class="flow">
+<div><b>APP Unime</b><span>Merchandiser thực hiện, chụp ảnh, chấm công tại cửa hàng</span></div>
+<div><b>Web Unime</b><span>Quản lý master, promotion, target, QC báo cáo</span></div>
+<div><b>Dashboard</b><span>Chỉ số điều hành, kỷ luật, kết quả trưng bày</span></div>
+<div><b>AcacyOne</b><span>Bản mobile cho quản lý xem nhanh thị trường</span></div>
+<div><b>FWFC</b><span>Hệ thống cho khối FW và FC</span></div>
+</div>
+</div></section>
 
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Chương 1</div>
-      <h2>Hành trình xây hệ thống</h2>
-      <p>Không bắt đầu từ một sản phẩm hoàn chỉnh, mà từ nhu cầu vận hành thực tế — quản lý con người, cửa hàng và kết quả trưng bày mỗi ngày. Hệ thống được đắp dần theo đúng nhịp phát triển của đội ngũ.</p>
-    </div>
-    <div class="road">
-      <svg viewBox="0 0 1080 240" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <linearGradient id="roadGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="#3E6BFF"/><stop offset="1" stop-color="#7C4DFF"/>
-          </linearGradient>
-        </defs>
-        <path d="M70,130 C185,130 185,70 300,70" fill="none" stroke="url(#roadGrad)" stroke-width="3"/>
-        <path d="M300,70 C415,70 415,150 530,150" fill="none" stroke="url(#roadGrad)" stroke-width="3"/>
-        <path d="M530,150 C645,150 645,70 760,70" fill="none" stroke="url(#roadGrad)" stroke-width="3"/>
-        <path d="M760,70 C875,70 875,130 990,130" fill="none" stroke="var(--coral)" stroke-width="3" stroke-dasharray="7 7"/>
+<section style="padding-top:0"><div class="w">
+<h2>Khám phá từng hệ thống</h2>
+<p class="lead">Chọn một hệ thống để xem từng module và trạng thái hiện tại.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="panel" id="panel"></div>
+</div></section>
 
-        <circle cx="70" cy="130" r="30" fill="url(#roadGrad)"/>
-        <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(58,118)">
-          <rect x="0" y="0" width="7" height="7" rx="1.5"/><rect x="11" y="0" width="7" height="7" rx="1.5"/><rect x="0" y="11" width="7" height="7" rx="1.5"/><rect x="11" y="11" width="7" height="7" rx="1.5"/>
-        </g>
-        <text x="70" y="188" text-anchor="middle" class="roadlabel">Web Unime</text>
-        <text x="70" y="204" text-anchor="middle" class="roadsub">Nền tảng lõi · Done</text>
+<section style="padding-top:0"><div class="w">
+<h2>Đã làm được gì, đang làm gì, sắp làm gì</h2>
+<div class="road" id="road"></div>
+</div></section>
 
-        <circle cx="300" cy="70" r="30" fill="url(#roadGrad)"/>
-        <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(288,58)">
-          <path d="M0 12l4-7 4 5 3-4 7 6"/><path d="M0 19h18"/>
-        </g>
-        <text x="300" y="128" text-anchor="middle" class="roadlabel">Dashboard</text>
-        <text x="300" y="144" text-anchor="middle" class="roadsub">Lớp giám sát · Done</text>
+<section style="background:var(--card)"><div class="w">
+<h2>Vì sao ACACY đủ năng lực để Unilever tiếp tục tin tưởng</h2>
+<div class="why">
+<div><h3>Đã chứng minh bằng sản phẩm chạy thật</h3><p>Phần lớn module đã hoàn thành và đang được dùng hằng ngày trên thị trường, không dừng ở ý tưởng.</p></div>
+<div><h3>Hiểu vận hành của Unilever</h3><p>Hệ thống bám sát quy trình thực tế: beatplan, promotion, POSM, SOS, OSA, Facing, Stock, QC và thi đua Mer Contest.</p></div>
+<div><h3>Phát triển liên tục</h3><p>Song song với bảo trì, ACACY đang pilot và triển khai thêm mobile, AI nhận diện hình ảnh và quản lý POSM.</p></div>
+<div><h3>Kiểm soát chất lượng dữ liệu</h3><p>Định vị chống gian lận vị trí, thời gian tối thiểu tại cửa hàng, nhận diện khuôn mặt và QC ảnh trưng bày.</p></div>
+</div>
+</div></section>
 
-        <circle cx="530" cy="150" r="30" fill="url(#roadGrad)"/>
-        <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(518,138)">
-          <path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7l8-4z"/>
-        </g>
-        <text x="530" y="208" text-anchor="middle" class="roadlabel">AcacyOne</text>
-        <text x="530" y="224" text-anchor="middle" class="roadsub">Đội ngũ &amp; thị trường · Done</text>
+<section class="close"><div class="w">
+<h2>Cùng đi tiếp, từ số hóa đến thông minh hóa thị trường</h2>
+<p>Giai đoạn tiếp theo: AI tự điền báo cáo từ hình ảnh, POSM đầu-cuối, dashboard trên mobile cho mọi cấp quản lý. ACACY mong tiếp tục đồng hành để cùng Unilever hoàn thiện những bước này.</p>
+</div></section>
+<footer><div class="w">ACACY · Số liệu theo checklist hệ thống hiện tại</div></footer>
 
-        <circle class="pulse-ring" cx="760" cy="70" r="38" fill="none" stroke="var(--amber)" stroke-width="2"/>
-        <circle cx="760" cy="70" r="30" fill="url(#roadGrad)"/>
-        <g stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(748,58)">
-          <rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/>
-        </g>
-        <text x="760" y="128" text-anchor="middle" class="roadlabel">App Unime</text>
-        <text x="760" y="144" text-anchor="middle" class="roadsub">Đang pilot</text>
-
-        <circle cx="990" cy="130" r="30" fill="var(--panel)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
-        <g stroke="var(--coral)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(981,118)">
-          <path d="M2 0v22"/><path d="M2 2h13l-3.5 4.5L15 11H2"/>
-        </g>
-        <text x="990" y="188" text-anchor="middle" class="roadlabel">System FWFC</text>
-        <text x="990" y="204" text-anchor="middle" class="roadsub" fill="var(--coral)">Đề xuất 2026</text>
-      </svg>
-    </div>
-    <div class="timeline">
-      <div class="t-item">
-        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-        <h3>System Web Unime<span class="tag">nền tảng quản trị lõi</span></h3>
-        <p>Điểm khởi đầu: chấm công, báo cáo trưng bày, xử lý SOS, quản lý dữ liệu gốc (nhân viên, cửa hàng, nhà phân phối, sản phẩm), target KPI, beatplan và QC — xương sống mà mọi nghiệp vụ khác đứng trên đó, nay gần như toàn bộ đã ổn định ở trạng thái bảo trì.</p>
-      </div>
-      <div class="t-item">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 12l4-7 4 5 3-4 7 6"/><path d="M3 19h18"/></svg></div>
-        <h3>Dashboard<span class="tag">lớp giám sát</span></h3>
-        <p>Khi dữ liệu vận hành đã đủ dày, chúng tôi xây lớp quan sát: kết quả trưng bày, kỷ luật hiện trường, hồ sơ nhân sự, kết quả QC và hiệu suất KPI — cho phép quản lý cấp trên nhìn toàn cảnh mà không cần vào từng nghiệp vụ con.</p>
-      </div>
-      <div class="t-item">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7l8-4z"/></svg></div>
-        <h3>AcacyOne<span class="tag">câu chuyện đội ngũ</span></h3>
-        <p>Một lớp giới thiệu tổng quan về đội ngũ và thị trường — phục vụ trao đổi nội bộ và với đối tác, đã hoàn thiện và duy trì ổn định.</p>
-      </div>
-      <div class="t-item">
-        <div class="icon"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
-        <h3>System APP Unime<span class="tag">đưa hệ thống ra hiện trường</span></h3>
-        <p>Giai đoạn quan trọng nhất: đóng gói toàn bộ nghiệp vụ vào một ứng dụng cho nhân viên thị trường — từ beatplan, chấm công, chi tiết cửa hàng, đến nhận diện khuôn mặt và A.I phát hiện trưng bày không đạt. Giao diện mới đang pilot, mở rộng chạy trên cả iOS và Android.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Chương 2</div>
-      <h2>Hệ thống hôm nay</h2>
-      <p>Bốn trụ cột đã đi vào vận hành ổn định, và một trụ cột — ứng dụng hiện trường — đang là trọng tâm mở rộng.</p>
-    </div>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-        <h3>System Web Unime</h3>
-        <div class="count">10</div>
-        <p>Nghiệp vụ quản trị lõi, hầu hết ở trạng thái bảo trì; riêng Quản lý POSM (tồn kho, lắp đặt tại cửa hàng) đang pilot.</p>
-      </div>
-      <div class="pillar">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="13" y="8" width="3" height="10"/><rect x="19" y="5" width="0" height="0"/></svg></div>
-        <h3>Dashboard</h3>
-        <div class="count">6</div>
-        <p>Toàn bộ khối giám sát đã ổn định; POSM Dashboard (nhập – tồn – lắp đặt – thu hồi) đang trong giai đoạn coding.</p>
-      </div>
-      <div class="pillar">
-        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"/><path d="M5 21c0-4 3.2-6.5 7-6.5s7 2.5 7 6.5"/></svg></div>
-        <h3>AcacyOne</h3>
-        <div class="count">5</div>
-        <p>Tổng quan, đội ngũ, thị trường — hoàn thiện và duy trì.</p>
-      </div>
-    </div>
-
-    <div class="spotlight">
-      <div class="spotlight-copy">
-        <span class="pill">Đang pilot</span>
-        <h3>System APP Unime</h3>
-        <p>Ứng dụng dành cho nhân viên thị trường là nơi mọi nghiệp vụ hội tụ: từ lịch làm việc, chi tiết cửa hàng, đến quy trình duyệt nghỉ phép phân theo từng cấp (Mer trình SUP duyệt, SUP trình AMM duyệt, AMM trình cấp quản lý cao nhất duyệt) và A.I nhận diện khuôn mặt, A.I phát hiện trưng bày không đạt. Giao diện mới đang được pilot, hướng tới chạy song song trên iOS và Android.</p>
-      </div>
-      <div class="ledger">
-        <div class="row"><span>Chi tiết cửa hàng</span><span>Visibility, QRCode, chấm công, promotion, SOS, POSM khảo sát, A.I detect hình ảnh</span></div>
-        <div class="row"><span>Thời gian làm việc</span><span>Tổng giờ, số cửa hàng đã viếng thăm, lịch sử CI/CO</span></div>
-        <div class="row"><span>KPI</span><span>% hoàn thành KPI, lương tạm tính</span></div>
-        <div class="row"><span>Profile &amp; nhận diện</span><span>Thông tin nhân viên, chụp khuôn mặt 3 góc cho hồ sơ</span></div>
-        <div class="row"><span>Đào tạo, hỗ trợ, thông báo</span><span>Vận hành song song cùng nghiệp vụ chính</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="statband">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Chương 3</div>
-      <h2>Con số sau chặng đường</h2>
-    </div>
-    <div class="donut-row">
-      <div class="donut-wrap">
-        <svg viewBox="0 0 200 200">
-          <g transform="rotate(-90 100 100)">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--panel-2)" stroke-width="26"/>
-            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--green)" stroke-width="26" stroke-dasharray="353.9 502.65" stroke-dashoffset="0"/>
-            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--amber)" stroke-width="26" stroke-dasharray="37.2 502.65" stroke-dashoffset="-353.9"/>
-            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--blue-glow)" stroke-width="26" stroke-dasharray="18.6 502.65" stroke-dashoffset="-391.1"/>
-            <circle cx="100" cy="100" r="80" fill="none" stroke="var(--coral)" stroke-width="26" stroke-dasharray="93.0 502.65" stroke-dashoffset="-409.7"/>
-          </g>
-        </svg>
-        <div class="center"><div class="big">27</div><div class="small">hạng mục</div></div>
-      </div>
-      <div class="legend">
-        <div class="legend-item"><span class="sw" style="background:var(--green)"></span><div><div class="num">19</div><div class="lbl">Đã hoàn thiện, đang bảo trì ổn định (Web Unime, Dashboard, AcacyOne)</div></div></div>
-        <div class="legend-item"><span class="sw" style="background:var(--amber)"></span><div><div class="num">2</div><div class="lbl">Đang pilot: Quản lý POSM &amp; giao diện App mới</div></div></div>
-        <div class="legend-item"><span class="sw" style="background:var(--blue-glow)"></span><div><div class="num">1</div><div class="lbl">Đang coding: POSM Dashboard cho NPP &amp; cửa hàng</div></div></div>
-        <div class="legend-item"><span class="sw" style="background:var(--coral)"></span><div><div class="num">5</div><div class="lbl">Đề xuất phát triển 2026: System FWFC</div></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Chương 4</div>
-      <h2>Đề xuất phát triển 2026</h2>
-      <p>Khi vận hành đã ổn định ở cấp Mer và cửa hàng, bước tiếp theo là mở rộng quyền quản trị và báo cáo cho các cấp giám sát và điều phối hiện trường — System FWFC.</p>
-    </div>
-    <div class="flow">
-      <svg viewBox="0 0 1080 140">
-        <line x1="60" y1="70" x2="962" y2="70" stroke="var(--coral)" stroke-width="2" stroke-dasharray="6 6"/>
-        <path d="M955,60 L978,70 L955,80 Z" fill="var(--coral)"/>
-        <g>
-          <circle cx="90" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
-          <text x="90" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">1</text>
-          <text x="90" y="112" text-anchor="middle" class="roadsub">AMM FC SUP</text>
-        </g>
-        <g>
-          <circle cx="300" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
-          <text x="300" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">2</text>
-          <text x="300" y="112" text-anchor="middle" class="roadsub">SUP FC Mer</text>
-        </g>
-        <g>
-          <circle cx="510" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
-          <text x="510" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">3</text>
-          <text x="510" y="112" text-anchor="middle" class="roadsub">AMM FW</text>
-        </g>
-        <g>
-          <circle cx="720" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
-          <text x="720" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">4</text>
-          <text x="720" y="112" text-anchor="middle" class="roadsub">SUP FW</text>
-        </g>
-        <g>
-          <circle cx="912" cy="70" r="22" fill="var(--panel-2)" stroke="var(--coral)" stroke-width="2" stroke-dasharray="4 4"/>
-          <text x="912" y="76" text-anchor="middle" class="roadlabel" style="font-size:13px" fill="var(--coral)">5</text>
-          <text x="912" y="112" text-anchor="middle" class="roadsub">Report</text>
-        </g>
-        <g transform="translate(1000,38)">
-          <path d="M2 0v64" stroke="var(--coral)" stroke-width="2"/>
-          <path d="M2 4h32l-9 12 9 12H2Z" fill="var(--coral)"/>
-          <text x="18" y="21" text-anchor="middle" fill="#0B1024" font-family="Inter" font-weight="700" font-size="12">2026</text>
-        </g>
-      </svg>
-    </div>
-    <div class="manifest">
-      <div class="m-row"><div><h4>AMM FC SUP</h4><p>Quản trị cấp AMM cho khối giám sát field coordinator</p></div><span class="flag">Đề xuất 2026</span></div>
-      <div class="m-row"><div><h4>SUP FC Mer</h4><p>Công cụ giám sát dành cho SUP quản lý đội Mer field coordinator</p></div><span class="flag">Đề xuất 2026</span></div>
-      <div class="m-row"><div><h4>AMM FW</h4><p>Quản trị cấp AMM cho khối field worker</p></div><span class="flag">Đề xuất 2026</span></div>
-      <div class="m-row"><div><h4>SUP FW</h4><p>Công cụ giám sát dành cho SUP quản lý đội field worker</p></div><span class="flag">Đề xuất 2026</span></div>
-      <div class="m-row"><div><h4>Report</h4><p>Lớp báo cáo tổng hợp cho toàn bộ khối FWFC</p></div><span class="flag">Đề xuất 2026</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="closing">
-  <div class="wrap">
-    <h2>Từ một checklist vận hành, đến một hệ thống mà Unilever có thể tin cậy để mở rộng tiếp.</h2>
-    <p>Chúng tôi mong muốn tiếp tục đồng hành cùng Unilever trong giai đoạn tới — đưa System FWFC vào vận hành và hoàn thiện các hạng mục đang pilot, để hệ thống phủ kín từ cửa hàng đến cấp quản lý khu vực.</p>
-    <div class="sign">Đội ngũ phát triển Unime</div>
-  </div>
-</section>
-
+<script>
+var ST={d:"Đang vận hành",p:"Đang pilot",i:"Đang triển khai",c:"Đang coding"};
+var S=[
+{n:"Web Unime",s:"Nền tảng quản trị cho bộ phận vận hành và quản lý",m:[
+["System admin","d",""],["Kết quả làm việc","d","Chấm công, báo cáo trưng bày, POSM, SOS"],["Quản lý master","d","Nhân viên, cửa hàng, nhà phân phối, sản phẩm"],["Promotion","d","Thông tin promotion, sản phẩm, target trưng bày"],["Đăng ký target KPI","d","Target KPI cho từng cửa hàng"],["Quản lý POSM","p","Tồn kho, lắp đặt tại cửa hàng"],["Đăng ký Beatplan","d","Beatplan cho từng Merchandiser"],["QC","d","Kiểm tra báo cáo trưng bày nhân viên gửi về"],["Auto mail","d","Tự gửi báo cáo cho ASM, NPP, AMM"],["QRCode cửa hàng","d","Xem thông tin, kết quả trưng bày, tiền thưởng, Visibility Xanh/Vàng/Đỏ. Bảo mật bằng tài khoản đăng nhập"]]},
+{n:"Dashboard",s:"Góc nhìn điều hành cho các cấp quản lý",m:[
+["POSM","c","POSM tại NPP và cửa hàng: nhập, tồn, lắp đặt, thu hồi"],["Summary Executive","d","Chỉ số chính để quản lý nắm nhanh thị trường"],["Employees Profile","d","Nhân sự theo khu vực, thâm niên, độ tuổi, giới tính, tỷ lệ nghỉ việc"],["Discipline","d","Số nhân viên đang làm việc và các số liệu tuân thủ"],["DisplayResult","d","Đạt, Rớt, KTB, KTC cùng % thực đạt OSA, Facing, Stock"],["QC","d","Remind, Pass, Reject, Cheating theo thời gian, khu vực, CTTB"],["KPI Performance","d","OSA, QC, Timespend, Successful Call của nhân viên"]]},
+{n:"AcacyOne",s:"Phiên bản mobile cho quản lý xem thị trường mọi lúc",m:[
+["Tổng quan","p","Performance nhân viên trên mobile"],["Đội ngũ","p","OSA, QC, Timespend, Successful Call trên mobile"],["Thị trường","p","Discipline, DisplayResult trên mobile"],["Cover","p","Mở rộng view mobile"],["Module tiếp theo","p","Đang lên kế hoạch mở rộng"]]},
+{n:"System FWFC",s:"Hệ thống cho các cấp AMM, SUP khối FW và FC",m:[
+["AMM FC SUP","i",""],["SUP FC Mer","i",""],["AMM FW","i",""],["SUP FW","i",""],["Report","i",""]]},
+{n:"APP Unime",s:"Ứng dụng hằng ngày của Merchandiser tại cửa hàng",m:[
+["APP giao diện mới","i","Mở rộng cho iOS và Android"],["Lịch làm việc","d","Danh sách cửa hàng, beatplan, cửa hàng gần tôi"],["Danh sách cửa hàng thực hiện","d","Lưu cửa hàng đã viếng thăm và chương trình khảo sát"],["Thông tin cửa hàng","d","Ảnh overview mỗi lần viếng thăm, chống gian lận vị trí, thời gian tối thiểu"],["Kết quả A.I trưng bày","i","AI phát hiện trưng bày không đạt"],["KPI","d","% hoàn thành KPI, lương tạm tính"],["Chi tiết cửa hàng","i","Visibility, QRCode, chấm công, Promotion, SOS, POSM, AI tự điền số vào báo cáo"],["Thời gian làm việc","d","Tổng giờ làm, cửa hàng đã viếng thăm, lịch sử CI/CO"],["Tạo mới cửa hàng","i","Nhân viên tự tạo cửa hàng viếng thăm"],["Đăng ký thêm Promotion","i","Nhân viên tự đăng ký promotion cho cửa hàng"],["Xuất danh sách hình ảnh","d","Ảnh overview, KPI, chương trình trưng bày"],["Xuất đơn hàng đề nghị","d","Từ sản phẩm hết hàng lên đơn đề nghị"],["Performance","d","Thống kê performance nhân viên"],["Đăng ký nghỉ phép","d","Duyệt theo cấp Mer, SUP, AMM"],["Profile","d","Thông tin user, quản lý, NPP, vùng, thành tựu"],["Nhận diện khuôn mặt","d","Chụp chính diện, trái, phải cập nhật hồ sơ"],["Đào tạo","d","Khóa học"],["Thông báo","d","Thông báo chương trình"],["Hỗ trợ","d","Gửi yêu cầu cho IT"]]}
+];
+function cnt(m){var r={d:0,p:0,i:0,c:0};m.forEach(function(x){r[x[1]]++});return r}
+var tot=0,all={d:0,p:0,i:0,c:0};
+S.forEach(function(s){var r=cnt(s.m);for(var k in r){all[k]+=r[k];tot+=r[k]}});
+document.getElementById("stats").innerHTML=
+ [[S.length,"hệ thống kết nối"],[tot,"module và tính năng"],[all.d,"đang vận hành"],[tot-all.d,"đang phát triển"]]
+ .map(function(x){return "<div><b>"+x[0]+"</b><span>"+x[1]+"</span></div>"}).join("");
+var cur=0,flt="all";
+function bar(m){var r=cnt(m),n=m.length;return '<div class="bar">'+["d","p","i","c"].map(function(k){return '<i class="'+k+'" style="background:var(--c);width:'+(r[k]/n*100)+'%"></i>'}).join("")+"</div>"}
+function tabs(){document.getElementById("tabs").innerHTML=S.map(function(s,i){var r=cnt(s.m);return '<button class="tab" role="tab" aria-selected="'+(i==cur)+'" data-i="'+i+'"><strong>'+s.n+'</strong><small>'+r.d+"/"+s.m.length+' đang vận hành</small>'+bar(s.m)+"</button>"}).join("")}
+function panel(){var s=S[cur],r=cnt(s.m);
+ var ch=[["all","Tất cả ("+s.m.length+")"]].concat(["d","p","i","c"].filter(function(k){return r[k]}).map(function(k){return [k,ST[k]+" ("+r[k]+")"]}));
+ var l=s.m.filter(function(x){return flt=="all"||x[1]==flt});
+ document.getElementById("panel").innerHTML="<h3 style='margin:0 0 4px;font-size:22px'>"+s.n+"</h3><p>"+s.s+'</p><div class="chips">'+ch.map(function(c){return '<button class="chip" data-f="'+c[0]+'" aria-pressed="'+(flt==c[0])+'">'+c[1]+"</button>"}).join("")+'</div><div class="mods">'+l.map(function(x){return '<div class="mod '+x[1]+'"><span class="tag"><span class="dot"></span>'+ST[x[1]]+"</span><h4>"+x[0]+"</h4>"+(x[2]?"<p>"+x[2]+"</p>":"")+"</div>"}).join("")+"</div>"}
+document.getElementById("tabs").onclick=function(e){var b=e.target.closest(".tab");if(!b)return;cur=+b.dataset.i;flt="all";tabs();panel()};
+document.getElementById("panel").onclick=function(e){var b=e.target.closest(".chip");if(!b)return;flt=b.dataset.f;panel()};
+tabs();panel();
+document.getElementById("road").innerHTML=[
+["d","Đã hoàn thành ("+all.d+")",["Web quản trị, QC, auto mail, QRCode cửa hàng","6 dashboard điều hành","App Merchandiser: lịch làm việc, KPI, chấm công, nhận diện khuôn mặt, đào tạo"]],
+["p","Đang pilot ("+all.p+")",["AcacyOne: bản mobile cho quản lý","Quản lý POSM trên web"]],
+["i","Đang triển khai và coding ("+(all.i+all.c)+")",["App giao diện mới cho iOS và Android","AI nhận diện trưng bày, tự điền báo cáo","System FWFC và Dashboard POSM"]]
+].map(function(x){return '<div class="'+x[0]+'" style="--c:var(--'+({d:"done",p:"pilot",i:"impl"})[x[0]]+')"><h3>'+x[1]+"</h3><ul>"+x[2].map(function(t){return "<li>"+t+"</li>"}).join("")+"</ul></div>"}).join("");
+</script>
 </body>
 </html>
