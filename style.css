@@ -57,7 +57,7 @@ p{margin:0 0 12px;max-width:72ch}
 .s-d{--c:var(--ok)}.s-p{--c:var(--pi)}.s-i{--c:var(--im)}.s-c{--c:var(--cd)}
 .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .pill{font-size:12px;padding:6px 12px}
-.lg span{display:inline-flex;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:500;color:var(--ink)}
+.lg span{display:inline-flex;align-items:center;background:var(--card);gap: 10px; border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:500;color:var(--ink)}
 .lg i{width:10px;height:10px;border-radius:50%}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .st,:root:not([data-theme="light"]) .pill{background:color-mix(in srgb,var(--c) 22%,var(--card));color:var(--c)}}
 :root[data-theme="dark"] .st,:root[data-theme="dark"] .pill{background:color-mix(in srgb,var(--c) 22%,var(--card));color:var(--c)}
