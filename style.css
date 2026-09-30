@@ -13,7 +13,7 @@ h1 em{font-style:normal;color:#8ff0ff}
 h2{font-size:clamp(24px,3.2vw,36px);line-height:1.2;max-width:26ch}
 h2:before{content:"";display:block;width:56px;height:5px;border-radius:3px;margin-bottom:16px;background:linear-gradient(90deg,var(--blue),var(--sky),var(--gr),var(--or))}
 h3{font-size:17px;margin:0 0 6px}
-p{margin:0 0 12px;max-width:72ch}
+p{margin:0 0 12px;}
 .m{color:var(--mute)}
 #top{position:relative;overflow:hidden;color:#fff;--ink:#fff;--mute:#e1ebff;--line:#ffffff55}
 #top{background:radial-gradient(circle at 88% 14%,#ff8a1f66,transparent 34%),radial-gradient(circle at 8% 96%,#00e0a166,transparent 36%),radial-gradient(circle at 70% 80%,#39c5e855,transparent 40%),linear-gradient(135deg,#0066cc 0%,#1d47d6 55%,#5a3fe0 100%)}
