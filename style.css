@@ -81,7 +81,7 @@ p{margin:0 0 12px;max-width:72ch}
 .fw.wide{max-width:920px}.fw.tall{max-width:270px;border-radius:28px}
 .trk{display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;background:var(--paper)}
 .js .trk{scrollbar-width:none}.js .trk::-webkit-scrollbar{display:none}
-.trk img{flex:0 0 100%;width:100%;height:auto;max-height:78vh;object-fit:contain;display:block;scroll-snap-align:start;transition:transform .8s ease}
+.trk img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;display:block;scroll-snap-align:start;transition:transform .8s ease}
 .fw:hover .trk img{transform:scale(1.025)}
 .js .gal.on{animation:gin .5s ease}
 @keyframes gin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
