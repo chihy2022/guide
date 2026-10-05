@@ -26,13 +26,6 @@ p{margin:0 0 12px;}
 .big{display:flex;gap:44px;flex-wrap:wrap;margin-top:44px;padding-top:20px;border-top:1px solid #ffffff66}
 .big b{font-family:var(--serif);font-weight:800;font-size:46px;line-height:1;display:block}
 .big span{font-size:14px;color:#e1ebff}
-.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:28px}
-.flow div{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:12px;padding:16px}
-.flow div:nth-child(1){--c:var(--blue)}.flow div:nth-child(2){--c:var(--or)}.flow div:nth-child(3){--c:var(--gr)}.flow div:nth-child(4){--c:var(--pu)}.flow div:nth-child(5){--c:var(--sky)}
-.flow b{font-family:var(--serif);font-weight:700;font-size:16px;display:block}
-.flow span{font-size:14px;color:var(--mute);line-height:1.5;display:block;margin-top:4px}
-.sys{margin-top:28px}
-.sys div{display:grid;grid-template-columns:130px 1fr 56px;gap:14px;align-items:center;padding:9px 0;font-size:15px}
 .bar{display:flex;height:14px;border-radius:7px;overflow:hidden;background:var(--line)}
 .bar i{display:block;height:100%}
 .lg{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;font-size:14px}
@@ -125,3 +118,52 @@ footer{padding:20px 36px;font-size:13px;color:var(--mute);background:var(--paper
 .totop:hover{transform:translateY(-3px)}
 .totop.hide{opacity:0;pointer-events:none;transform:translateY(8px)}
 @media(max-width:700px){.asks{grid-template-columns:1fr}.cta{padding:26px 22px}}
+
+/* XÓA toàn bộ CSS card cũ (từ "Thống nhất mã màu" đến hết file) rồi DÁN đoạn này vào cuối style.css */
+
+:root{--gr:#00a86b;--or:#f07d00;--acc:var(--blue)}
+
+/* ===== Tổng 5 hệ thống ===== */
+.tot{grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;}
+.tot .tl span{font-size:13px;color:var(--mute)}
+.tot .bar{margin-bottom:12px}
+
+/* ===== Card 1 dòng: huy hiệu tròn bên trái + góc gập bên phải ===== */
+.flow{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px;padding-left:38px}
+.sc{position:relative;display:grid;grid-template-columns:minmax(190px,1fr) auto;align-items:center;column-gap:24px;min-height:76px;
+  background:var(--card);border-radius:4px;padding:12px 44px 12px 60px;
+  box-shadow:0 10px 24px -14px #0a2a6666,0 0 0 1px var(--line);transition:transform .25s,box-shadow .25s}
+.sc:hover{transform:translateY(-2px);box-shadow:0 16px 30px -16px #0a2a6688,0 0 0 1px var(--line)}
+/* góc gập */
+.sc:after{content:"";position:absolute;top:0;right:0;border-top:24px solid var(--acc);border-left:24px solid transparent}
+/* huy hiệu */
+.bd{position:absolute;left:-38px;top:50%;transform:translateY(-50%);width:76px;height:76px;border-radius:50%;background:var(--card);
+  box-shadow:0 8px 18px -8px #0a2a6677,inset 0 0 0 1px var(--line);display:grid;place-items:center}
+.bd:before{content:"";position:absolute;inset:0;border-radius:50%;border:5px solid transparent;border-left-color:var(--acc)}
+.bd .ic{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(90deg,var(--acc) 50%,color-mix(in srgb,var(--acc) 82%,#fff) 50%)}
+.bd .ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.sc h3{font-size:17px;font-weight:700;margin:0 0 2px;color:var(--ink)}
+.sc p{font-size:13.5px;line-height:1.4;color:var(--mute);margin:0}
+
+/* ===== Chip: nền trung tính, màu chỉ ở chấm trạng thái ===== */
+.sm{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;white-space:nowrap}
+.sm .tt{font-size:13px;color:var(--mute);margin-right:2px}
+.sm .tt b{font-size:15px;color:var(--ink);font-weight:800}
+.sm .ch{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:500;line-height:1;padding:7px 12px;border-radius:999px;
+  background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+.sm .ch i{width:8px;height:8px;border-radius:50%;background:var(--k)}
+.sm .ch b{font-weight:800}
+.sm .dv{width:1px;height:18px;background:var(--line);margin:0 4px}
+.sm .ty2{font-size:12.5px;color:var(--mute)}
+.sm .ty2 b{color:var(--ink);font-weight:800}
+
+@media(max-width:1000px){
+  .sc{grid-template-columns:minmax(0,1fr);row-gap:10px}
+  .sm{flex-wrap:wrap;white-space:normal}
+}
+@media(max-width:640px){
+  .flow{padding-left:30px}.tot{margin-left:30px;grid-template-columns:1fr;gap:16px}
+  .sc{padding:12px 36px 12px 46px}
+  .bd{left:-30px;width:60px;height:60px}.bd .ic{width:40px;height:40px}.bd .ic svg{width:18px;height:18px}
+}
