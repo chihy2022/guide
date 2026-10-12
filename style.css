@@ -38,7 +38,7 @@ p{margin:0 0 12px;}
 .list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .it{position:relative;background:var(--card);background:linear-gradient(160deg,color-mix(in srgb,var(--c) 5%,var(--card)) 0%,var(--card) 70%);border:1px solid color-mix(in srgb,var(--c) 14%,var(--line));border-radius:18px;padding:16px 18px 18px;box-shadow:0 8px 22px -18px #0a2a6655;transition:transform .25s ease,box-shadow .25s ease}
 .it:hover{transform:translateY(-2px);box-shadow:0 14px 28px -18px #0a2a6666}
-.it h3{font-size:16px;line-height:1.35;margin:10px 0 4px;font-weight:600}
+.it h3{font-size:16.5px;line-height:1.35;margin:12px 0 6px;font-weight:700;color:var(--ink)}
 .tg{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;justify-content:space-between}
 .st,.pill{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;line-height:1;padding:6px 12px 6px 10px;border-radius:999px;background:color-mix(in srgb,var(--c) 13%,var(--card));color:color-mix(in srgb,var(--c) 75%,#000)}
 .st:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c)}
@@ -112,8 +112,6 @@ footer{padding:20px 36px;font-size:13px;color:var(--mute);background:var(--paper
 .totop.hide{opacity:0;pointer-events:none;transform:translateY(8px)}
 @media(max-width:700px){.asks{grid-template-columns:1fr}.cta{padding:26px 22px}}
 
-/* XÓA toàn bộ CSS card cũ (từ "Thống nhất mã màu" đến hết file) rồi DÁN đoạn này vào cuối style.css */
-
 :root{--gr:#00a86b;--or:#f07d00;--acc:var(--blue)}
 
 /* ===== Tổng 5 hệ thống ===== */
@@ -184,3 +182,28 @@ footer{padding:20px 36px;font-size:13px;color:var(--mute);background:var(--paper
 :root[data-theme="dark"] .rd .lb{color:#0c1836}
 @media(max-width:900px){.tl{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:34px}}
 @media(max-width:560px){.tl{grid-template-columns:1fr}}
+
+/* ================= BỔ SUNG MỚI: nhấn mạnh từ khóa, điểm nhấn A.I & Visibility, giá trị ================= */
+.m strong,.lead strong{color:inherit;font-weight:inherit}
+.it p strong,.ask p strong,.rd li strong{color:inherit;font-weight:inherit}
+.it p,.ask p{color:color-mix(in srgb,var(--mute) 62%,var(--ink))}
+.it p.sub{padding-left:0 !important;color:var(--ink);font-weight:500}
+.it p.sub:before{display:none !important}
+.it.hi{background:linear-gradient(160deg,color-mix(in srgb,#ff2d95 9%,var(--card)),var(--card) 72%)}
+.it.hi:before{content:"\2605";position:absolute;top:-12px;right:-12px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#ff2d95;color:#fff;font-size:16px;line-height:1;box-shadow:0 0 0 3px var(--card),0 4px 16px #ff2d95aa;z-index:2}
+#hl{background:linear-gradient(180deg,var(--paper),var(--ta))}
+#val{background:var(--card)}
+.hls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:28px}
+.hc{position:relative;overflow:hidden;border-radius:22px;padding:26px 28px 28px;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 18px 40px -22px #0a2a66aa;transition:transform .25s}
+.hc:hover{transform:translateY(-3px)}
+.hc .tag{display:inline-block;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;background:#ffffff2e;margin-bottom:12px}
+.hc h3{font-size:22px;color:#fff;margin:0 0 10px}
+.hc p{color:#eaf1ff;font-size:15px;margin:8px 0 0}
+.hc p strong{color:inherit;font-weight:inherit}
+.vis{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+.vs{display:inline-flex;align-items:center;gap:7px;background:#ffffff26;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600}
+.vs i{width:11px;height:11px;border-radius:50%}
+.kpis{display:flex;gap:44px;flex-wrap:wrap;margin-top:32px;padding-top:20px;border-top:1px solid var(--line)}
+.kpis b{font:800 42px/1 var(--serif);color:var(--blue);display:block}
+.kpis span{font-size:14px;color:var(--mute)}
+@media(max-width:700px){.hls{grid-template-columns:1fr}}
