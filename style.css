@@ -395,3 +395,26 @@ footer{padding:0 0 10px;background:var(--paper)}
 .gk .k3{background:color-mix(in srgb,var(--blue) 14%,var(--card));border:1.5px dashed var(--blue)}
 .gk .k4{height:5px;background:color-mix(in srgb,var(--blue) 35%,var(--card))}
 .gk .k5{width:0;height:14px;border-radius:0;border-left:2px dashed var(--hot)}
+
+/* ===== Card Visibility status: 2 view dạng panel ===== */
+.hv{display:flex;flex-direction:column}
+.hv .hv-lead{margin:0}
+.hv .hv-lead strong{font-weight:700}
+.hv .vis{margin:14px 0 18px}
+.hv .vs{padding:7px 16px;font-size:13.5px;background:#ffffff2e}
+.vw{display:grid;gap:12px;flex:1;align-content:start}
+.vw1{display:flex;gap:14px;align-items:flex-start;background:rgb(255 255 255 / .14);border:1px solid rgb(255 255 255 / .28);border-radius:16px;padding:16px 18px}
+.vn{flex:none;width:30px;height:30px;border-radius:50%;background:#fff;color:var(--c1);display:grid;place-items:center;font:800 14px var(--serif)}
+.vw1 h4{margin:3px 0 4px;font-size:15px;font-weight:700;color:#fff}
+.hc .vw1 p{margin:0 0 8px;font-size:13.5px;line-height:1.55;color:rgb(255 255 255 / .92)}
+.vw1 ul{margin:0;padding:0;list-style:none;display:grid;gap:5px;font-size:13.5px;line-height:1.5;color:rgb(255 255 255 / .92)}
+.vw1 li{position:relative;padding-left:14px}
+.vw1 li:before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;border-radius:50%;background:rgb(255 255 255 / .75)}
+
+/* Card Visibility: gọn lại cho ngang chiều cao card A.I */
+.hv .tag{align-self:flex-start}
+.hv .vis{margin:12px 0 14px}
+.vw{gap:10px;flex:none}
+.vw1{padding:14px 16px;gap:12px}
+.vw1 h4{margin:4px 0 6px}
+.vw1 ul{gap:6px}
