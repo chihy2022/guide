@@ -327,7 +327,8 @@ footer{padding:0 0 10px;background:var(--paper)}
 .cb div{position:relative;height:12px;border-radius:6px}
 .cb em{position:absolute;left:calc(100% + 8px);top:50%;transform:translateY(-50%);font-style:normal;font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap}
 .cx .dl{justify-self:end;font-size:13px;font-weight:700;color:var(--gr);background:color-mix(in srgb,var(--gr) 12%,var(--card));padding:5px 12px;border-radius:999px;white-space:nowrap}
-.aiq{display:flex;gap:28px;margin-top:20px;padding-top:16px;border-top:1px solid rgb(255 255 255 / .3);position:relative;z-index:1}
+.mock-note{margin:16px 0 0;font-size:12.5px;font-style:italic;color:var(--mute)}
+.aiq{display:flex;margin-top:20px;padding-top:16px;border-top:1px solid rgb(255 255 255 / .3);position:relative;z-index:1}
 .aiq b{display:block;font:800 30px/1 var(--serif);color:#fff}
 .aiq span{display:block;margin-top:6px;font-size:12.5px;color:rgb(255 255 255 / .88)}
 .fl3{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;position:relative;z-index:1}
