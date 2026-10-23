@@ -741,3 +741,89 @@ footer:after,.ft-pat{opacity:.12}
 
 /* ===== v13: tên "APP Unime 2.0" dài hơn */
 #app .two aside h2{font-size:clamp(30px,2.8vw,40px)}
+
+/* ===== v14: tối ưu mobile / tablet ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* (đã bỏ body{overflow-x:hidden} vì chỉ che lỗi tràn, đã sửa tận gốc ở v15) */
+.full{min-height:100vh;min-height:100svh}
+
+/* Cảm ứng: bỏ hiệu ứng hover bị dính */
+@media(hover:none){
+  .it:hover,.bc:hover,.nc:hover,.rd:hover,.ask:hover,.hc:hover,.sc:hover,.fw:hover{transform:none}
+  .fw:hover .trk img{transform:none}
+}
+
+/* Tablet */
+@media(max-width:900px){
+  .tl-b .tlm ol{flex-wrap:wrap;gap:8px 14px}
+  .tl-b .tlm li{white-space:normal;flex:1 1 40%}
+  .ft-brand h3{white-space:normal}
+  .fw.tall{max-width:320px}
+}
+
+/* Điện thoại */
+@media(max-width:640px){
+  section{padding:72px 0}
+  h1{font-size:clamp(26px,8vw,36px)}
+  .hst{gap:10px;margin-top:32px}
+  .hst div,.hst div:first-child{padding:16px;border-radius:18px}
+  .hst b{font-size:32px}
+  .hst span{font-size:13px}
+  .it{padding:16px 16px 18px}
+  .two aside .cnt{font-size:48px}
+  .fw.tall{max-width:240px}
+  .gtab{font-size:13px;padding:6px 14px}
+  .dm-m img,.dm-m video{max-height:60vh}
+  .dm-h{font-size:16px}
+  .cta h3{font-size:19px}
+  .ft-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px}
+  .ft-bar{flex-direction:column}
+  .totop{width:42px;height:42px}
+}
+
+/* Màn hình rất nhỏ */
+@media(max-width:380px){
+  .w{padding:0 14px 0 28px}
+  .kpis b,.big b{font-size:34px}
+  .lgd li{white-space:normal}
+}
+
+/* ===== v15: sửa tràn viền + roadmap (PHẢI nằm cuối file) ===== */
+
+/* 1) Thu về 1 cột trên tablet/điện thoại (ghi đè v6/v7) */
+@media(max-width:900px){
+  .two{grid-template-columns:minmax(0,1fr);gap:24px}
+  .two aside{position:static}
+  .two aside h2,#app .two aside h2{white-space:normal}
+  .list{grid-template-columns:minmax(0,1fr)}
+}
+.two>*,.list>*{min-width:0}
+
+/* 2) Lộ trình trong thẻ: cho xuống dòng, không bị cắt */
+@media(max-width:900px){
+  .tl-b .tlm ol{display:grid;grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
+  .tl-b .tlm li{white-space:normal;flex:none}
+}
+
+/* 3) Gantt: vuốt ngang mượt trên cảm ứng */
+.gt{min-width:0;max-width:100%}
+.gts{
+  max-width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;
+  touch-action:pan-x pan-y;
+}
+@media(max-width:700px){
+  .gt{padding:20px 14px 16px}
+  .gtw{min-width:960px;--lw:190px}
+  .gl{font-size:12.5px}
+  .gr.gg .gl{font-size:13.5px}
+}
+
+/* 4) Chấm điều hướng bên trái: thu nhỏ để không đè nội dung trên điện thoại */
+@media(max-width:640px){
+  nav{left:max(6px,env(safe-area-inset-left,0px));gap:9px}
+  nav a{width:9px;height:9px;border-width:1.5px}
+  nav a.on{transform:scale(1.3)}
+}
