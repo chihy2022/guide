@@ -850,3 +850,43 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
     bottom:calc(88px + env(safe-area-inset-bottom,0px));
   }
 }
+/* ===== v17: embed + logo + dark/zoom ===== */
+
+/* 1) Bỏ padding safe-area ở :root (nguyên nhân dải trắng trên/dưới) */
+:root{padding-top:0!important;padding-bottom:0!important}
+html{scroll-padding-top:0}
+.ft-bar{padding-bottom:calc(28px + env(safe-area-inset-bottom,0px))}
+/* Khi nhúng vào trang khác: trang cha tự lo safe-area và chiều cao */
+.embed .full{min-height:0}
+.embed .ft-bar{padding-bottom:28px}
+.embed .totop{bottom:20px}
+
+/* 2) Logo không tràn viền */
+.logos{display:flex;flex-wrap:nowrap;align-items:center;max-width:100%;gap:clamp(12px,3vw,28px)}
+.logos img{flex:0 1 auto;min-width:0;max-width:100%;object-fit:contain}
+@media(max-width:560px){
+  .logos img{height:40px}.logos img+i+img{height:26px}
+  .ft-brand .logos img{height:36px}.ft-brand .logos img+i+img{height:24px}
+  .cta .logos img{height:36px}.cta .logos img+i+img{height:24px}
+}
+@media(max-width:380px){.logos img{height:34px}.logos img+i+img{height:22px}}
+
+/* 3) Thanh công cụ: sáng/tối + cỡ chữ */
+body>section,body>#sections,body>footer{zoom:var(--z,1)}
+.ctrl{position:fixed;right:max(14px,env(safe-area-inset-right,0px));top:calc(14px + env(safe-area-inset-top,0px));z-index:7;display:flex;align-items:center;gap:2px;padding:4px;border-radius:999px;background:color-mix(in srgb,var(--card) 90%,transparent);border:1px solid var(--line);box-shadow:0 10px 24px -12px rgb(var(--sh)/.45);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.embed .ctrl{top:14px}
+.ctrl button{width:38px;height:38px;border-radius:50%;border:0;background:transparent;color:var(--ink);font:700 13px var(--serif);cursor:pointer;display:grid;place-items:center;padding:0}
+.ctrl button:hover{background:color-mix(in srgb,var(--blue) 14%,transparent)}
+.ctrl svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ctrl .sep{width:1px;height:20px;background:var(--line);margin:0 2px}
+.ctrl .sun{display:none}
+:root[data-theme="dark"] .ctrl .sun{display:block}
+:root[data-theme="dark"] .ctrl .moon{display:none}
+
+/* 4) Dark mode: bổ sung các chỗ đang cứng màu trắng */
+:root[data-theme="dark"]{color-scheme:dark;--blue:#4d94ff;--cy:#3cc3e6;--gr:#3fcf9b;--or:#ffab4a;--pu:#b38cf5;--sh:0 0 0}
+:root[data-theme="dark"] nav a{background:var(--card);box-shadow:0 0 0 2px rgb(12 24 54/.7)}
+:root[data-theme="dark"] .two aside .m{color:var(--ink)}
+:root[data-theme="dark"] .two aside .prog{background:var(--line);box-shadow:none}
+:root[data-theme="dark"] .two aside .pill{background:var(--card)!important;color:var(--c)!important}
+:root[data-theme="dark"] .two aside .pill.nw{background:linear-gradient(90deg,var(--blue),var(--pu))!important;color:#fff!important}
