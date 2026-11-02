@@ -25,7 +25,7 @@ show(0)})();
 /* ===== 4. Lộ trình trên từng thẻ, sắp xếp thẻ, hiệu ứng xuất hiện ===== */
 (function(){
 var TLD={p:[['Pilot','Hiện tại'],['Triển khai','Tiếp theo']],
- i:[['Triển khai','Hiện tại'],['Vận hành','T1 – T6/2027']],
+ i:[['Triển khai','Hiện tại'],['Vận hành','Q1 – Q2/2027']],
  a:[['Triển khai','Hiện tại'],['Mở rộng nhiều chương trình','Liên tục']],
  c:[['Coding','Hiện tại'],['Pilot → Triển khai','Tiếp theo']]};
 /* Vòng đời dùng chung: Coding → Pilot → Triển khai → Vận hành */
@@ -33,13 +33,14 @@ function tl(c){if(c.querySelector('.tlm'))return;
  var k=c.classList.contains('s-p')?'p':c.classList.contains('s-i')?'i':c.classList.contains('s-c')?'c':null;if(!k)return;
  var h=c.querySelector('h3'),ttl=h?h.textContent.trim():'';if(k=='i'&&/^A\.I/.test(ttl))k='a';
  var sec=c.closest('section'),T=TLD[k],sid=sec?sec.id:'';
- if(sid=='one')T=[['Pilot','Hiện tại'],['Triển khai','T1/2027']];
- if(/^Visibility status/.test(ttl))T=[['Coding','Hiện tại'],['Pilot → Triển khai','T2/2027']];
- if(/^APP giao diện mới/.test(ttl))T=[['Pilot → Triển khai','Hiện tại'],['Vận hành','T4/2027']];
- if(sid=='web'&&/^Quản lý POSM/.test(ttl))T=[['Pilot','T7 – T9/2026'],['Triển khai','T10/2026'],['Vận hành','T2/2027']];
- if(sid=='web'&&/^QRCode cửa hàng/.test(ttl))T=[['Triển khai','T10/2026']];
- if(sid=='app'&&/^(Tạo mới cửa hàng|Đăng ký thêm Chương trình)/.test(ttl))T=[['Pilot → Triển khai','T1/2027']];
- if(sid=='dash'&&/^POSM/.test(ttl))T=[['Pilot → Triển khai','T10/2026'],['Vận hành','T2/2027']];
+ /* AcacyOne: 10 module Triển khai Q1/2027; 3 module Triển khai Q1 – Q2/2027 */
+ if(sid=='one')T=[['Pilot','Hiện tại'],['Triển khai',/^(Tổng quan Vận hành|Đội ngũ – Kết quả Chốt kỳ|Thị trường – Discipline)/.test(ttl)?'Q1 – Q2/2027':'Q1/2027']];
+ if(/^Visibility status/.test(ttl))T=[['Coding','Hiện tại'],['Pilot → Triển khai','Q1/2027']];
+ if(/^APP giao diện mới/.test(ttl))T=[['Pilot → Triển khai','Hiện tại'],['Vận hành','Q2/2027']];
+ if(sid=='web'&&/^Quản lý POSM/.test(ttl))T=[['Pilot','Q3/2026'],['Triển khai','Q4/2026'],['Vận hành','Q1/2027']];
+ if(sid=='web'&&/^QRCode cửa hàng/.test(ttl))T=[['Triển khai','Q4/2026']];
+ if(sid=='app'&&/^(Tạo mới cửa hàng|Đăng ký thêm Chương trình)/.test(ttl))T=[['Pilot → Triển khai','Q1/2027']];
+ if(sid=='dash'&&/^POSM/.test(ttl))T=[['Pilot → Triển khai','Q4/2026'],['Vận hành','Q1/2027']];
  var d=document.createElement('div');d.className='tlm';
  d.innerHTML='<span class="tlk">Lộ trình</span><ol>'+T.map(function(s,i){return'<li'+(i?'':' class="on"')+'><i></i><b>'+s[0]+'</b><small>'+s[1]+'</small></li>'}).join('')+'</ol>';
  c.appendChild(d)}
