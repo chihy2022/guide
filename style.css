@@ -346,7 +346,7 @@ footer{padding:0 0 10px;background:var(--paper)}
 .dt>summary::-webkit-details-marker{display:none}
 .dt>summary:hover{border-color:var(--ac)}
 .dsh{flex:none;font-weight:700;color:var(--ac)}
-.pvw{flex:1;min-width:0;font-size:13.5px;line-height:1.5;color:var(--mute);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pvw{flex:1;min-width:0;font-size:13.5px;line-height:1.5;color:var(--mute);display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .chv{flex:none;width:10px;height:10px;border-right:2px solid var(--ac);border-bottom:2px solid var(--ac);transform:rotate(45deg);transition:transform .25s;margin:0 4px 4px 0}
 .dt[open]>summary{margin-bottom:16px}
 .dt[open] .chv{transform:rotate(-135deg);margin:4px 4px 0 0}
