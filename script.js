@@ -127,12 +127,16 @@ lock();setInterval(lock,2000);
 })();
 
 /* ===== 8. Thanh công cụ: sáng/tối + cỡ chữ, nhớ lựa chọn; tự nhận biết khi bị nhúng ===== */
+/* ===== 8. Thanh công cụ: sáng/tối + cỡ chữ (chỉ ở trang gốc, không hiện khi nhúng) ===== */
 (function(){
 var R=document.documentElement,K='acacy-prefs',P={};
+
+/* Điều kiện nhúng: trong iframe hoặc có ?embed=1 -> bỏ toàn bộ tính năng */
+var emb=false;try{emb=window.self!==window.top}catch(e){emb=true}
+if(emb||/[?&]embed=1/.test(location.search)){R.classList.add('embed');return}
+
 try{P=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
 function save(){try{localStorage.setItem(K,JSON.stringify(P))}catch(e){}}
-var emb=false;try{emb=window.self!==window.top}catch(e){emb=true}
-if(emb||/[?&]embed=1/.test(location.search))R.classList.add('embed');
 
 var mq=window.matchMedia('(prefers-color-scheme:dark)');
 var theme=P.t||(mq.matches?'dark':'light');
