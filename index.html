@@ -5,6 +5,17 @@
 <title>ACACY × Unilever – Hệ sinh thái công nghệ vận hành thị trường</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+/* Highlight nhẹ ý nổi bật trong thẻ */
+.hl{background:linear-gradient(transparent 52%,color-mix(in srgb,var(--c,var(--blue)) 26%,transparent) 52%);color:var(--ink);font-weight:600;padding:0 3px;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl strong{font-weight:inherit}
+.hc .hl{background:rgb(255 255 255/.24);color:#fff;padding:1px 6px;border-radius:6px}
+/* Card điểm nhấn A.I: dạng bullet */
+.hc .pts{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.hc .pts li{position:relative;padding-left:18px;font-size:15px;line-height:1.7;color:rgb(255 255 255/.92)}
+.hc .pts li:before{content:"";position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:#fff;opacity:.85}
+.hc .pts strong{color:inherit;font-weight:inherit}
+</style>
 </head>
 <body class="tl-b">
 <nav id="nav" aria-label="Điều hướng"><a data-t="Giới thiệu" href="#top" aria-label="Phần 1"></a><a data-t="Tác động" href="#imp" aria-label="Phần 2"></a><a data-t="Tổng quan" href="#ov" aria-label="Phần 3"></a><a data-t="Điểm nhấn" href="#hl" aria-label="Phần 4"></a><a data-t="Giao diện" href="#shots" aria-label="Phần 5"></a><a data-t="APP Unime 2.0" href="#app" aria-label="Phần 6"></a><a data-t="Web Unime" href="#web" aria-label="Phần 7"></a><a data-t="Dashboard" href="#dash" aria-label="Phần 8"></a><a data-t="AcacyOne" href="#one" aria-label="Phần 9"></a><a data-t="System FWFC" href="#fw" aria-label="Phần 10"></a><a data-t="Giá trị" href="#val" aria-label="Phần 11"></a><a data-t="Lộ trình" href="#rm" aria-label="Phần 12"></a><a data-t="Kết" href="#end" aria-label="Phần 13"></a></nav>
@@ -195,9 +206,13 @@
 <div class="hls">
 <article class="hc" style="--c1:var(--blue);--c2:var(--pu)"><span class="tag">Đang triển khai</span>
 <h3>A.I nhận diện &amp; tự điền báo cáo</h3>
-<p><strong>A.I phát hiện tự động</strong> các trưng bày không đạt từ hình ảnh chụp tại cửa hàng.</p>
-<p><strong>Tự điền số liệu</strong> vào báo cáo của nhân viên, giảm thao tác nhập tay.</p>
-<p>Nhân viên <strong>kiểm tra và chỉnh sửa</strong> nếu có sai số: A.I hỗ trợ, con người xác nhận.</p>
+<ul class="pts">
+<li><strong>A.I phát hiện tự động</strong> các trưng bày không đạt từ hình ảnh chụp tại cửa hàng</li>
+<li><strong>Tự điền số liệu</strong> vào báo cáo của nhân viên, giảm thao tác nhập tay</li>
+<li>Nhân viên <strong>kiểm tra và chỉnh sửa</strong> nếu có sai số: A.I hỗ trợ, con người xác nhận</li>
+<li><strong>Từ đầu năm đến nay</strong> đã triển khai các chương trình trưng bày: GE, FSU,…</li>
+<li><mark class="hl"><strong>Tháng 10</strong> mở rộng thêm chương trình trưng bày "SUPER FG"</mark></li>
+</ul>
 <div class="aiq"><div></div><div><b>−60%</b><span>thời gian nhập báo cáo (mục tiêu)</span></div></div><div class="fl3"><span>A.I đề xuất</span><i>→</i><span>Nhân viên xác nhận</span><i>→</i><span>QC kiểm tra</span></div></article>
 <article class="hc hv" style="--c1:var(--gr);--c2:var(--cy)"><span class="tag">Đang coding</span>
 <h3>Visibility status</h3>
@@ -300,11 +315,13 @@
 <p><strong>A.I phát hiện tự động</strong> các trưng bày không đạt</p>
 <p><strong>A.I nhận diện hình ảnh, tự điền số liệu</strong> vào báo cáo của nhân viên</p>
 <p>Nhân viên chỉ cần <strong>kiểm tra và chỉnh sửa</strong> nếu có sai số</p>
+<p><strong>Từ đầu năm đến nay</strong> đã triển khai các chương trình trưng bày: GE, FSU,…</p>
+<p><mark class="hl"><strong>Tháng 10</strong> mở rộng thêm chương trình trưng bày "SUPER FG"</mark></p>
 </div>
 <div class="it s-c hi" style="--c:var(--cd)">
 <div class="tg"><span class="st">Đang coding</span><span class="ty nw">Mở rộng</span></div>
 <h3 data-tag="★ Điểm nhấn">Visibility status</h3>
-<p><strong>Visibility trực quan</strong> theo 3 mức: Xanh / Vàng / Đỏ, hiển thị ngay trên danh sách cửa hàng</p>
+<p><mark class="hl"><strong>Visibility trực quan</strong> theo 3 mức: Xanh / Vàng / Đỏ</mark>, hiển thị ngay trên danh sách cửa hàng</p>
 <p><strong>Thống kê ngay trên app</strong> theo Ngày và MTD: số CH trên tuyến, số CH đạt V, % CH đạt V, phân bổ cửa hàng theo V</p>
 <p><strong>Chi tiết từng cửa hàng</strong> (CH đạt, tổng set, set đạt)</p>
 </div>
@@ -354,12 +371,15 @@
 <div class="it s-i" style="--c:var(--im)">
 <div class="tg"><span class="st">Đang triển khai</span><span class="ty nw">Mở rộng</span></div>
 <h3>Tạo mới cửa hàng</h3>
-<p>Nhân viên <strong>tạo mới cửa hàng</strong> viếng thăm ngay trên app. Setup những cửa hàng sẽ lên store list tháng tiếp theo.</p>
+<p>Nhân viên <strong>tạo mới cửa hàng</strong> viếng thăm ngay trên app.</p>
+<p><mark class="hl">Setup những cửa hàng sẽ lên store list tháng tiếp theo.</mark></p>
+<p><strong>Tracking lắp đặt POSM</strong></p>
 </div>
 <div class="it s-i" style="--c:var(--im)">
 <div class="tg"><span class="st">Đang triển khai</span><span class="ty nw">Mở rộng</span></div>
 <h3>Đăng ký thêm Chương trình trưng bày</h3>
-<p>Nhân viên <strong>tự đăng ký thêm chương trình trưng bày</strong> cho cửa hàng ngay trên app. Setup những cửa hàng sẽ lên store list tháng tiếp theo.</p>
+<p>Nhân viên <strong>tự đăng ký thêm chương trình trưng bày</strong> cho cửa hàng tạo mới ngay trên app.</p>
+<p><mark class="hl">Setup những cửa hàng sẽ lên store list tháng tiếp theo.</mark></p>
 </div>
 <div class="it s-d" style="--c:var(--ok)">
 <div class="tg"><span class="st">Đang vận hành</span><span class="ty mt">Ổn định</span></div>
@@ -425,7 +445,8 @@
 <div class="tg"><span class="st">Đang triển khai</span><span class="ty nw">Mở rộng</span></div>
 <h3 data-tag="★ Mới">QRCode cửa hàng</h3>
 <p>Xem nhanh <strong>thông tin cửa hàng</strong>, kết quả trưng bày, tiền thưởng,…</p>
-<p><strong>Visibility</strong> trực quan theo 3 mức: Xanh / Vàng / Đỏ (Kết quả chấm gần nhất, kết quả tháng n-1, n-2, n-3)</p>
+<p>Xem thêm <mark class="hl"><strong>kết quả và hình ảnh chấm của 4 lần gần nhất</strong></mark></p>
+<p><mark class="hl"><strong>Visibility</strong> trực quan theo 3 mức: Xanh / Vàng / Đỏ</mark> (Kết quả chấm gần nhất, kết quả tháng n-1, n-2, n-3)</p>
 <p>Quét được bằng <strong>Zalo</strong> hoặc camera linh động; bảo mật — cần đăng nhập tài khoản mới xem được dữ liệu</p>
 </div>
 <div class="it s-d" style="--c:var(--ok)">
@@ -457,6 +478,10 @@
 <div class="tg"><span class="st">Đang pilot</span><span class="ty nw">Mở rộng</span></div>
 <h3>Quản lý POSM</h3>
 <p>Quản lý <strong>tồn kho</strong> và lắp đặt POSM tại từng cửa hàng, kiểm soát vật phẩm minh bạch.</p>
+<p class="sub"><strong>Quy trình</strong>:</p>
+<p><strong>CDA</strong>: phân bổ POSM, upload phân bổ POSM lên web Unime</p>
+<p><strong>MerSUP</strong>: nhận thông tin phân bổ, làm việc với kế toán NPP về loại POSM và số lượng đã về NPP; xác nhận POSM đã nhận lên web Unime ("BC thực nhận POSM"); kiểm tra và cập nhật tồn kho thực tế lên web Unime ("BC tồn kho GSTB")</p>
+<p><strong>Mer</strong>: lắp đặt, quét QR / khảo sát tracking POSM đã lắp</p>
 </div>
 <div class="it s-d" style="--c:var(--ok)">
 <div class="tg"><span class="st">Đang vận hành</span><span class="ty mt">Ổn định</span></div>
@@ -479,15 +504,15 @@
 <aside>
 <div class="ai" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
 <h2>Dashboard</h2>
-<p class="m">Bộ dashboard điều hành về trưng bày, nhân sự, kỷ luật, QC và hiệu suất.</p>
+<p class="m">Bộ dashboard điều hành về POSM, trưng bày, nhân sự, kỷ luật, QC và hiệu suất.</p>
 <span class="cnt">6/7</span><span class="m">module đang vận hành</span>
 <div class="prog"><i style="width:85.7%"></i></div>
 <div class="pills"><span class="pill s-d">Đang vận hành · 6</span><span class="pill s-i">Đang triển khai · 1</span><span class="pill mt">Ổn định · 6</span><span class="pill nw">Mở rộng · 1</span></div>
 </aside>
 <div class="list">
-<div class="it s-i" style="--c:var(--im)">
+<div class="it s-i hi" style="--c:var(--im)">
 <div class="tg"><span class="st">Đang triển khai</span><span class="ty nw">Mở rộng</span></div>
-<h3>POSM</h3>
+<h3 data-tag="★ Điểm nhấn">POSM</h3>
 <p>Quản trị <strong>toàn bộ vòng đời POSM</strong> tại NPP và cửa hàng: nhập – tồn – lắp đặt – thu hồi.</p>
 </div>
 <div class="it s-d" style="--c:var(--ok)">
@@ -760,7 +785,7 @@
         </div>
       </div>
       <div class="gr" style="--c:var(--blue)">
-        <div class="gl"><i></i><span class="gtx">★ A.I nhận diện, tự điền báo cáo</span></div>
+        <div class="gl"><i></i><span class="gtx">★ A.I nhận diện, tự điền báo cáo: mở rộng triển khai "SUPER FG"</span></div>
         <div class="gb">
           <span class="br ip" style="grid-column:6/19">Triển khai → Mở rộng nhiều chương trình</span>
         </div>
@@ -768,21 +793,21 @@
       <div class="gr" style="--c:var(--blue)">
         <div class="gl"><i></i><span class="gtx">★ Visibility status</span></div>
         <div class="gb">
-          <span class="br pl" style="grid-column:10/14">Coding</span>
-          <span class="br ip" style="grid-column:14/19">Pilot → Triển khai</span>
+          <span class="br pl" style="grid-column:10/11">Coding</span>
+          <span class="br pl" style="grid-column:11/12">Pilot</span>
+          <span class="br ip" style="grid-column:12/19">Triển khai</span>
         </div>
       </div>
       <div class="gr" style="--c:var(--blue)">
         <div class="gl"><i></i><span class="gtx">App giao diện mới iOS và Android</span></div>
         <div class="gb">
-          <span class="br ip" style="grid-column:10/16">Pilot → Triển khai</span>
-          <span class="br dd" style="grid-column:16/19">Vận hành</span>
+          <span class="br ip" style="grid-column:10/19">Triển khai</span>
         </div>
       </div>
       <div class="gr" style="--c:var(--blue)">
         <div class="gl"><i></i><span class="gtx">Tạo cửa hàng, đăng ký chương trình trưng bày</span></div>
         <div class="gb">
-          <span class="br ip" style="grid-column:13/19">Pilot → Triển khai</span>
+          <span class="br pl" style="grid-column:12/19">Pilot</span>
         </div>
       </div>
 
@@ -799,7 +824,7 @@
         </div>
       </div>
       <div class="gr" style="--c:var(--or)">
-        <div class="gl"><i></i><span class="gtx">★ QRCode cửa hàng (Visibility 3 mức)</span></div>
+        <div class="gl"><i></i><span class="gtx">★ QRCode cửa hàng (Visibility 3 mức), thêm xem kết quả, hình ảnh chấm 4 lần gần nhất</span></div>
         <div class="gb">
           <span class="br ip" style="grid-column:10/19">Triển khai</span>
         </div>
@@ -807,9 +832,8 @@
       <div class="gr" style="--c:var(--or)">
         <div class="gl"><i></i><span class="gtx">Quản lý POSM trên web</span></div>
         <div class="gb">
-          <span class="br pl" style="grid-column:7/10">Pilot</span>
-          <span class="br ip" style="grid-column:10/14">Triển khai</span>
-          <span class="br dd" style="grid-column:14/19">Vận hành</span>
+          <span class="br pl" style="grid-column:10/12">Pilot</span>
+          <span class="br ip" style="grid-column:12/19">Triển khai</span>
         </div>
       </div>
 
@@ -824,10 +848,9 @@
         </div>
       </div>
       <div class="gr" style="--c:var(--gr)">
-        <div class="gl"><i></i><span class="gtx">Dashboard POSM</span></div>
+        <div class="gl"><i></i><span class="gtx">★ Dashboard POSM</span></div>
         <div class="gb">
-          <span class="br ip" style="grid-column:10/14">Pilot → Triển khai</span>
-          <span class="br dd" style="grid-column:14/19">Vận hành</span>
+          <span class="br ip" style="grid-column:10/19">Triển khai</span>
         </div>
       </div>
 
@@ -838,14 +861,14 @@
       <div class="gr" style="--c:var(--pu)">
         <div class="gl"><i></i><span class="gtx">10 module Q1: Landing &amp; Roadmap, Coverage, Hiệu suất MTD, Cảnh báo rủi ro, Phân tích KPI / Cấp quản lý, Chi tiết NV, Xuất báo cáo…</span></div>
         <div class="gb">
-          <span class="br pl" style="grid-column:7/13">Pilot</span>
-          <span class="br ip" style="grid-column:13/16">Triển khai</span>
+          <span class="br pl" style="grid-column:9/13">Pilot</span>
+          <span class="br ip" style="grid-column:13/19">Triển khai</span>
         </div>
       </div>
       <div class="gr" style="--c:var(--pu)">
         <div class="gl"><i></i><span class="gtx">3 module Q1/Q2: Tổng quan Vận hành, Kết quả Chốt kỳ, Discipline</span></div>
         <div class="gb">
-          <span class="br pl" style="grid-column:7/13">Pilot</span>
+          <span class="br pl" style="grid-column:10/13">Pilot</span>
           <span class="br ip" style="grid-column:13/19">Triển khai</span>
         </div>
       </div>
@@ -879,7 +902,7 @@
 <p class="m lead">ACACY đã cùng Unilever xây nền tảng vững chắc. Đây là những bước chúng tôi đề xuất cho giai đoạn tiếp theo.</p>
 <div class="nxg">
 <article class="nc a" style="--c:var(--blue)"><span class="no">01</span><h3>Duy trì ổn định</h3><p>Tiếp tục vận hành và bảo trì các hệ thống đã hoàn thành.</p><div class="mk"><span>Mốc</span>Liên tục</div><div class="mk"><span>Kỳ vọng</span>Duy trì mức vận hành ổn định</div><div class="chp"><span>35 module đang vận hành</span></div></article>
-<article class="nc b" style="--c:var(--or)"><span class="no">02</span><h3>Đưa pilot vào Triển khai → Vận hành</h3><p>App giao diện mới và Quản lý POSM trên web.</p><div class="mk"><span>Mốc</span>T2 – T4/2027</div><div class="mk"><span>Kỳ vọng</span>App mới đồng bộ trên iOS và Android</div><div class="chp"><span>App giao diện mới iOS và Android</span><span>Quản lý POSM web</span></div></article>
+<article class="nc b" style="--c:var(--or)"><span class="no">02</span><h3>Đưa pilot vào Triển khai</h3><p>App giao diện mới và Quản lý POSM trên web.</p><div class="mk"><span>Mốc</span>T10 – T12/2026</div><div class="mk"><span>Kỳ vọng</span>App mới đồng bộ trên iOS và Android</div><div class="chp"><span>App giao diện mới iOS và Android</span><span>Quản lý POSM web</span></div></article>
 <article class="nc c" style="--c:var(--gr)"><span class="no">03</span><h3>Triển khai nền tảng mới</h3><p>AcacyOne trên mobile, Visibility và các tác vụ ngay trên app.</p><div class="mk"><span>Mốc</span>T1 – T6/2027</div><div class="mk"><span>Kỳ vọng</span>AcacyOne dùng cho toàn bộ cấp quản lý</div><div class="chp"><span>AcacyOne mobile</span><span>Visibility status</span><span>Tạo cửa hàng</span><span>Đăng ký chương trình trưng bày</span></div></article>
 <article class="nc d" style="--c:var(--pu)"><span class="no">04</span><h3>Đưa A.I vào thực thi</h3><p>A.I nhận diện hình ảnh, tự điền số liệu vào báo cáo, nhân viên chỉ cần kiểm tra &amp; chỉnh sửa (nếu có).</p><div class="mk"><span>Mốc</span>Liên tục</div><div class="mk"><span>Kỳ vọng</span>Giảm thời gian nhập báo cáo, mở rộng A.I nhiều chương trình</div><div class="chp"><span>A.I nhận diện hình ảnh</span><span>Tự điền số liệu</span><span>Nhân viên kiểm tra lại</span></div><span class="big-ai">A.I</span></article>
 </div>
@@ -897,7 +920,7 @@
 <div class="ft-links"><a href="#imp">Tác động</a><a href="#ov">5 Hệ thống</a><a href="#hl">Điểm nhấn</a><a href="#shots">Giao diện</a><a href="#val">Giá trị</a><a href="#rm">Lộ trình</a><a href="#end">Bước tiếp theo</a></div>
 </div>
 </div>
-<div class="ft-bar"><span>© 2026 ACACY × Unilever</span><span>Cập nhật tháng 10/2026</span><span>Người thực hiện: <b>Linhvt</b> · ACACY – BA dept</span></div>
+<div class="ft-bar"><span>© 2026 ACACY × Unilever</span><span>Cập nhật tháng 11/2026</span><span>Người thực hiện: <b>Linhvt</b> · ACACY – BA dept</span></div>
 </footer>
 <a id="totop" class="totop" href="#top" aria-label="Về đầu trang" title="Về đầu trang">
 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
