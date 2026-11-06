@@ -79,7 +79,7 @@ upd();setInterval(upd,3600000)})();
    Thẻ nào không có demo thì không hiện nút. */
 (function(){
 var DEMOS={
- "A.I nhận diện & tự điền báo cáo":["images/a.i.mp4"],
+ "A.I nhận diện & tự điền báo cáo":["images/a.i.superfg.mp4","images/a.i.mp4"],
  "Visibility status":["images/Visibility-1.png"],
  "Tạo mới cửa hàng":["images/Addstore-1.png"],
  "Đăng ký thêm Chương trình trưng bày":["images/Addpromotion-1.png"]
